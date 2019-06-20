@@ -1,0 +1,366 @@
+*mostrar*/
+#text-aiking{
+  color: #97c93e !important;
+}
+
+#contenido{
+  text-align: center;
+  padding: 50px;
+}
+
+body{
+  font-family: "Times New Roman";
+}
+/*mostrar*/
+
+
+
+
+/*-----------------------ACCESORIOS------------------------------*/
+#logo{
+    width: 80px;
+}
+
+.btn {
+  color:white;
+   border: 3px green double;
+}
+
+.btn:hover{
+  background-color: green;
+  color:white;
+}
+
+.btn-secundary{
+  color: black;
+}
+
+
+/*---------------HEADER----------------*/
+
+.cabecera{
+  background: #1461a9;
+background: -moz-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, #1461a9), color-stop(47%, #110f39), color-stop(100%, #110f39));
+background: -webkit-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -o-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -ms-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: linear-gradient(135deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1461a9', endColorstr='#110f39', GradientType=1 );
+}
+
+
+
+#header img{
+  width: 110px;
+  margin-left: -90px;
+  margin-top: -40px;
+  text-align: -90px;
+}
+
+#header h5{
+ 
+  margin-top: -80px;
+  margin-left: 10px;
+  font-size: 32px;
+
+}
+
+.container .navbar-brand img:hover{
+transition: all 1s;
+transform: rotate(360deg);
+}
+
+.container h5{
+  color:#fff;
+}
+
+.container h5:hover{
+transition: all 1s;
+transform: rotateY(360deg);
+color:#2B863B;
+}
+
+#header #IniciarSesion{
+  margin-top: -30px;
+}
+
+.navbar-nav .nav-item .nav-link{
+  background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+  width: 150px;
+  
+  text-align: center;
+  font-weight: bold;
+}
+
+ #mision{
+  margin-left: 250px;
+  cursor: pointer;
+  transition:all 0.5s;
+}
+
+ #mision:hover{
+  color:#fff;
+  opacity:0;
+}
+
+  #contenido-texto {
+  background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+  width: 150px;
+  text-align: center;
+  margin-left: -180px;
+  position: absolute;
+  margin-top: -90px;
+  font-size: 8px;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.navbar-nav #contenido-mision {
+  opacity: 1;
+  visibility: visible;
+}
+
+#menu{
+  border-color: #fff;
+}
+
+
+
+#vision{
+  margin-left: 30px;
+  cursor: pointer;
+  transition:all 0.5s;
+}
+
+#alcance{
+  margin-left: 30px;
+  cursor: pointer;
+  transition:all 0.5s;
+}
+
+.container .row .col-12{
+  border-color: red;
+  background-color: red;
+}
+
+
+
+
+
+ #vision:hover{
+  color:#fff;
+  opacity:0;
+}
+
+ #alcance:hover{
+  color:#fff;
+  opacity:0;
+}
+
+
+.Botonmision {
+  background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+  width: 120px;
+  height: 35px;
+  margin top: -120px;
+  margin-left: 290px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.Botonvision {
+  background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+  width: 120px;
+  height: 35px;
+  margin-left: 420px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+}
+.col-4 .Botonvision{
+  margin-top: -35px;
+}
+
+
+
+.Botonalcance {
+  background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+width: 120px;
+  height: 35px;
+  margin-left: 550px;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+  position: absolute;
+}
+.col-4 .Botonalcance{
+  margin-top: -35px;
+}
+
+
+
+
+.Mision{
+background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+   margin-top:-50%;
+  width: 380px;
+  display: flex;
+  font-size: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.Vision{
+background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+   margin-top:-50%;
+  width: 380px;
+  display: flex;
+  font-size: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.Alcance{
+background-color:#2B863B;
+  border-radius: 6px;
+  color:#fff;
+   margin-top:-50%;
+  width: 380px;
+  display: flex;
+  font-size: 8px;
+  opacity: 0;
+  visibility: hidden;
+  transition: 0.5s;
+}
+
+.Botonmision:hover .Mision{
+  opacity: 1;
+  visibility: visible;
+  margin-left: -20px;
+  margin-top: -100px;
+}
+
+.Botonvision:hover .Vision{
+  opacity: 1;
+  visibility: visible;
+  margin-left: -140px;
+  margin-top: -100px;
+position: absolute;
+
+}
+
+.Botonalcance:hover .Alcance{
+  opacity: 1;
+  visibility: visible;
+  margin-left: -260px;
+  margin-top: -100px;
+position: absolute;
+
+}
+
+/*-----------------FLECHAS NEXT Y PREV-------------
+.overlay .Antes{
+  left: 0;
+background:url(images/button-prev.gif);
+position: absolute;
+}
+
+.overlay .Despues{
+  right: 0;
+background:url(images/button-next.gif);
+position: absolute;
+}
+
+*/
+
+
+
+/*-------------------------------------CARUSE---------------------*/
+#main .carousel-inner img{
+    max-height: 90vh; /* IDEA: es el la altura maxima del navegador */
+    object-fit: cover; /* IDEA: se realiza un zoom a la imagen */
+    filter: brightness(70%)
+
+}
+
+
+
+
+
+#carousel {
+  position: relative;
+}
+
+#carousel .overlay{
+  position: absolute;/* IDEA: se expanda todo el ancho y el alto de la pantalla no se pone algo fijo */
+  top:0; /* IDEA: no tenga espacio ni arriba ni abajo */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(black, 0.5);
+  color: white;
+}
+
+#carousel .overlay .container,
+#carousel .overlay .row {
+  height: 100%;
+}
+
+/*--------------------------------------------------FOOTER-----------------------------------------------*/
+#footer .titulo{
+
+  font-size:25px;
+}
+
+#footer p {
+  color: #fff;
+}
+
+#footer img{
+  width: 230px
+}
+
+#footer{
+  max-height: 30vh;
+}
+
+#footer{
+ background: #1461a9;
+background: -moz-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -webkit-gradient(left top, right bottom, color-stop(0%, #1461a9), color-stop(47%, #110f39), color-stop(100%, #110f39));
+background: -webkit-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -o-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: -ms-linear-gradient(-45deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+background: linear-gradient(135deg, #1461a9 0%, #110f39 47%, #110f39 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1461a9', endColorstr='#110f39', GradientType=1 );
+
+}
+
+#footer .col-4{
+  margin-top: -20px;
+  font-size:14px;
+}
+
+#footer .col-4 img{
+  margin-top: -28px;
+
+}
