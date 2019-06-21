@@ -16,13 +16,7 @@
     <section class="content">
       <!-- Default box -->
       <div class="box">
-            <?php
-                include 'conexion.php';
-                $conexion=conectar();
-                $sqlMostrar="select * from estudiante ";
-                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
-                
-            ?>
+            
           <div class="box-header with-border">
               <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
                 Agregar Integrantes
@@ -34,33 +28,36 @@
               <caption>ESTUDIANTE</caption>
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">&nbsp;Cedula&nbsp;</th>
+                  <th scope="col">&nbsp;Cédula&nbsp;</th>
                   <th scope="col">&nbsp;Nombre&nbsp;</th>
                   <th scope="col">&nbsp;Apellido&nbsp;</th>
                   <th scope="col">&nbsp;Correo&nbsp;</th>
                   <th scope="col">&nbsp;Telefono&nbsp;</th>
                   <th scope="col" style="width:8px">&nbsp;Carga Horario&nbsp;</th>
-                  <th scope="col">&nbsp;Cargo&nbsp;</th>
                   <th scope="col">&nbsp;Acciones&nbsp;</th>
                 </tr>
               </thead>
 
               <tbody>
-                  <?php
+                   <?php
+                      include 'conexion.php';
+                      $conexion=conectar();
+                      $sqlMostrar="select * from Integrantes ";
+                      $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
-                  while ($row=$result->fetch_assoc()){
-                    printf("<tr><td scope=\"row\">%s</td>"
+
+                  while ($row=$result->fetch_array()){
+                    $variables=$row['cedulaI']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['cargaHoraria'];
+                    printf("<tr><td>&nbsp;%s</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%d&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
-                              <button class=\"btn-warning\" onclick=\"capturarid(%s)\")> <i class=\"fa fa-pencil\"></i></button>
-                              <button class=\"btn-danger\"> <i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>"
-                            ,$row['cedula'],$row['nombre'],$row['apellido'],$row['correo']
-                            ,$row['telefono'],$row['carga'],$row['cedula']); 
+                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                              </div></td></tr>", $row['cedulaI'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['cargaHoraria']);
                     }
                   ?>
               </tbody>
@@ -70,13 +67,9 @@
    </section>
 </div>
 
-<script>
-      function capturarid(id){
-          alert(id)
-      }
-</script>
 
-<!-- Modal -->
+
+<!-- Modal AGREGAR-->
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -88,14 +81,13 @@
           <h5 class="modal-title" style="text-align: center;">AGREGAR ESTUDIANTE</h5>
         </div>
 
-
-      <div class="modal-body">
+<div class="modal-body">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedula" placeholder="Cédula" required>
+                    <input type="text" class="form-control input-lg" name="cedulaI" placeholder="Cédula" required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
@@ -134,10 +126,9 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="carga" placeholder="Carga Horaria" required>
+                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
                       </div>
                     </div>
-
               <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
                 <div class="input-group">
@@ -187,20 +178,22 @@
           <h5 class="modal-title" style="text-align: center;">AGREGAR ESTUDIANTE</h5>
         </div>
 
-      <div class="modal-body">
+       <div class="modal-body">
+
+        <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedula" required>
+                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
@@ -208,7 +201,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
                 </div>
               </div>
 
@@ -216,7 +209,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo">
+                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
                     </div>
 
@@ -224,7 +217,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefono">
+                            <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                       </div>
                     </div>
 
@@ -232,30 +225,9 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="carga" required>
+                            <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
                       </div>
                     </div>
-
-              <!----------------------------------------- CARGO ----------------------------------------
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
-                      </select>
-                </div>
-              </div>
-
-
-             <div class="form-group">
-                <div class="panle">Subir foto   </div>
-                <input type="file" id="foto" name="nuevafoto">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>-->
          </div>
        </div>
       </div>
@@ -268,3 +240,5 @@
   </div>
  </div>
 </div>
+
+
