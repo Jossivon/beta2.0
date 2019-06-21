@@ -19,7 +19,7 @@
          <div class="error-content">
            <h3>
              <i class="fa fa-warning text-primary">
-               Página no encontrada por el momento
+               Página no encontrada
               </i>
             </h3>
 

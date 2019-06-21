@@ -1,10 +1,3 @@
-<?php 
-  session_start(); 
-
-  if(!isset($_SESSION["inicio"])){
-?>
-
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -23,32 +16,250 @@
 
       <!-- Default box -->
       <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Title</h3>
-
-          <div class="box-tools pull-right">
-            <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
-                    title="Collapse">
-              <i class="fa fa-minus"></i></button>
-            <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
-              <i class="fa fa-times"></i></button>
+           
+          <div class="box-header with-border">
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+                Agregar Empresa
+              </button>
           </div>
-        </div>
-        <div class="box-body">
-          Start creating your amazing application!
-        </div>
-        <!-- /.box-body -->
-        <div class="box-footer">
-          Footer
-        </div>
-        <!-- /.box-footer-->
+
+          <div class="box-body">
+           <table class="table table-bordered table-striped dt-responsive tablas">
+              <caption>EMPRESA</caption>
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">&nbsp;Código Empresa&nbsp;</th>
+                  <th scope="col">&nbsp;Nombre Empresa&nbsp;</th>
+                  <th scope="col">&nbsp;Siglas&nbsp;</th>
+                  <th scope="col">&nbsp;Ciudad&nbsp;</th>
+                  <th scope="col">&nbsp;Pagina Wen&nbsp;</th>
+                  <th scope="col">&nbsp;Teléfono&nbsp;</th>
+                  <th scope="col">&nbsp;Descripcion&nbsp;</th>
+                  <th scope="col">&nbsp;Acciones&nbsp;</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                  <?php
+                      include 'conexion.php';
+                      $conexion=conectar();
+                      $sqlMostrar="select * from Empresa ";
+                      $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+
+
+                  while ($row=$result->fetch_array()){
+                    $variables=$row['codigoE']."||".$row['nombre']."||".$row['siglas']."||".$row['ciudad']."||".$row['PaginaWeb']."||".$row['telefono']."||".$row['descripcion'];
+                  printf("<tr><td>&nbsp;%d</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%d&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td><div class=\"btn-group\">
+                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                              </div></td></tr>", $row['codigoE'],$row['nombre'],$row['siglas'],$row['ciudad'],$row['PaginaWeb'],$row['telefono'],$row['descripcion']);
+                    }
+                  ?>
+              </tbody>
+            </table>
+          </div> 
       </div>
-      <!-- /.box -->
+   </section>
+</div>
 
-    </section>
-    <!-- /.content -->
+
+
+<!-- AGREGAR -->
+<div class="modal fade" id="modalAgregarFacu"  role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarEmpre">
+       <div class="modal-header" style="background: #39CCCC; color:white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR EMPRESA</h5>
+        </div>
+
+
+      <div class="modal-body">
+        <div class="box-body">
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                    <input type="int" class="form-control input-lg" name="codigoE" placeholder="Código Empresa" required>
+             </div>
+             <br>
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" placeholder="Nombre de la Empresa" required>
+                </div>
+              </div>
+
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="siglas" placeholder="Siglas" required>
+                </div>
+              </div>
+
+              <!------------------------------------CORREO--------------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                            <input type="text" class="form-control input-lg" name="ciudad" placeholder="Ciudad">
+                      </div>
+                    </div>
+
+              <!------------------------------------- TELEFONO --------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            <input type="text" class="form-control input-lg" name="PaginaWeb" placeholder="Página Web" >
+                      </div>
+                    </div>
+
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="int" class="form-control input-lg" name="telefono" placeholder="Teléfono" required>
+                      </div>
+                    </div>
+
+                    <!---------------------------------- CARGA HORARIO ------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripción" required>
+                      </div>
+                    </div>
+
+
+
+              <!----------------------------------------- CARGO ----------------------------------------
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                      <select name="cargo" class="form-control input-lg">
+                        <option value="">Coordinador de Facultad</option>
+                        <option value="">Coordinador de Carrera</option>
+                        <option value="">Docente</option>
+                        <option value="">Estudiante</option>
+                      </select>
+                </div>
+              </div>
+
+
+             <div class="form-group">
+                <div class="panle">Subir foto   </div>
+                <input type="file" id="foto" name="nuevafoto">
+                <p class="help-block"> Peso máximo 200 MB</p>
+                <img src="vistas/img/usuarios/perfil.png" alt="">
+             </div>-->
+         </div>
+       </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Agregar Empresa</button>
+      </div>
+    </form>
   </div>
+ </div>
+</div>
 
-<?php
-  }
-?>
+
+
+
+<!-- EDITAR -->
+
+<div class="modal fade" id="modalEditar"  role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+       <div class="modal-header" style="background: #39CCCC; color:white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+        </div>
+
+      <div class="modal-body">
+
+        <input type="text" hidden="" id="codigoE">
+        <div class="box-body">
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                    <input type="int" class="form-control input-lg" name="codigoE" id="codigoEu"  required>
+             </div>
+             <br>
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
+                </div>
+              </div>
+
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="siglas" id="siglasu"  required>
+                </div>
+              </div>
+
+              <!------------------------------------CORREO--------------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                            <input type="text" class="form-control input-lg" name="ciudad" id="ciudadu" >
+                      </div>
+                    </div>
+
+              <!------------------------------------- TELEFONO --------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWebu" >
+                      </div>
+                    </div>
+
+              <!------------------------------------- TELEFONO --------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="int" class="form-control input-lg" name="telefono" id="telefonou"  required>
+                      </div>
+                    </div>
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
+                      </div>
+                    </div>
+         </div>
+       </div>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+ </div>
+</div>
+
+

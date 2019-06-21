@@ -6,6 +6,7 @@
     $password="ivonne08";*/
 
     $hostname="webapp.espoch.edu.ec";
-    $database="baseapp9";
     $username="user9";
     $password="Elpresi6312";
+    $database="baseapp9";
+?>
