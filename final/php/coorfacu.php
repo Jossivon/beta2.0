@@ -6,6 +6,7 @@
     $id=$_SESSION['idp'];
 ?>
 
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -36,7 +37,7 @@
               <caption>COORDINADORES DE FACULTAD</caption>
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">&nbsp;Cedula&nbsp;</th>
+                  <th scope="col">&nbsp;Cédula&nbsp;</th>
                   <th scope="col">&nbsp;Nombre&nbsp;</th>
                   <th scope="col">&nbsp;Apellido&nbsp;</th>
                   <th scope="col">&nbsp;Correo&nbsp;</th>
@@ -50,12 +51,12 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from integrante where Proyecto_CodigoProyecto=$id";
+                      $sqlMostrar="select * from Integrantes where codigoPro = $id ";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['CedulaIntegrante']."||".$row['NombreIntegrante']."||".$row['ApellidoIntegrante']."||".$row['CorreoIntegrante']."||".$row['TelefonoIntegrante']."||".$row['CargaHoraria'];
+                    $variables=$row['cedulaI']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['cargaHoraria'];
                     printf("<tr><td>&nbsp;%s</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -65,7 +66,7 @@
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['CedulaIntegrante'],$row['NombreIntegrante'],$row['ApellidoIntegrante'],$row['CorreoIntegrante'],$row['TelefonoIntegrante'],$row['CargaHoraria']);
+                              </div></td></tr>", $row['cedulaI'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['cargaHoraria']);
                     }
                   ?>
               </tbody>
@@ -81,7 +82,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php?id=<?php echo $id?>">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -96,7 +97,7 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedula" placeholder="Cédula" required>
+                    <input type="text" class="form-control input-lg" name="cedulaI" placeholder="Cédula" required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
@@ -135,7 +136,15 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="carga" placeholder="Carga Horaria" required>
+                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
+                      </div>
+                    </div>
+
+                      <!---------------------------------- CARGA HORARIO ------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Coordinador" value = "Coordinador Facultad" disabled >
                       </div>
                     </div>
 
@@ -190,20 +199,20 @@
 
       <div class="modal-body">
 
-        <input type="text" hidden="" id="cedula">
+        <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulau" id="cedulau"  required>
+                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreu" id="nombreu" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
@@ -211,7 +220,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellidou" id="apellidou"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
                 </div>
               </div>
 
@@ -219,7 +228,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correou" id="correou" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
                     </div>
 
@@ -227,7 +236,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefonou" id="telefonou" >
+                            <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                       </div>
                     </div>
 
@@ -235,7 +244,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargau" id="cargau"  required>
+                            <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
                       </div>
                     </div>
          </div>
@@ -244,12 +253,14 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
  </div>
 </div>
+
+
 
 <?php
   }
