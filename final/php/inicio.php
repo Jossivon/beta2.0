@@ -1,8 +1,11 @@
 <?php 
-  session_start(); 
+  //session_start(); 
 
   if(!isset($_SESSION["inicio"])){
     $id=$_REQUEST['id'];
+
+    $_SESSION['idp']=$_REQUEST['id'];
+    var_dump($_SESSION['idp']);
 ?>
 
 <div class="content-wrapper">

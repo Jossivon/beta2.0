@@ -20,9 +20,13 @@
 			echo '<h1>BIENVENIDO</h1>';
 			include('conexion.php');
 
+      $perfil=$_GET['p'];
 			$conexion = conectar();
-			$sql = "select * from proyecto";
-			$resultado=mysqli_query($conexion,$sql);
+
+
+
+			$sql = "select * from Proyecto";
+			$resultado=mysqli_query($conexion,$sql) or die('No se realizo la consulta');
 	?>
 		<section id="proyectos">
           <div class="container">
@@ -40,9 +44,9 @@
                   <div class="card" style="width: 18rem;">
                       <img src="../interfaz/imagenes/proyecto.jpg" class="card-img-top" alt="proyecto">
                       <div class="card-body">
-                        <h5 class="card-title"><?php echo $row['NombrePrograma']?></h5>
-                        <p class="card-text"><?= $row['NombreProyecto']?></p>
-                        <a href="plantilla.php?op=1&id=<?= $row['CodigoProyecto']?>" class="btn btn-secundary">Perfil</a>
+                        <h5 class="card-title"><?php echo $row['nombrePrograma']?></h5>
+                        <p class="card-text"><?= $row['nombreProyecto']?></p>
+                        <a href="plantilla.php?op=1&id=<?= $row['codigoPro']?>" class="btn btn-secundary">Perfil</a>
                       </div>
                   </div>
                 </div>
@@ -52,7 +56,7 @@
         </section>
     <?php 
     	}else{
-    		echo 'FALLO LA CONEXION';
+    		header('Location:../iniciarsesion.php');
     	}
     ?>
 </body>

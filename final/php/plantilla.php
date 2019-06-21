@@ -75,7 +75,7 @@
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <!--<script src="js/plantilla.js"></script>-->
     <!-- Funciones -->
-    <script src="js/funciones.js"></script>
+    <script src="../js/funciones.js"></script>
     <!--alertify -->
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"></script>
 
@@ -86,12 +86,12 @@
 <?php 
   session_start();
   include('../cabezera.html');
-  include('../menu.html');
+  include('../menu.php');
    
   if(!isset($_SESSION["inicio"])){
   	echo '<div class="wrapper">';
-
-  	$op='2';
+    
+  	$op='1';
 
   	if(isset($op)){
   		$op=$_REQUEST['op'];

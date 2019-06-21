@@ -9,13 +9,15 @@ $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $carga = $_POST['carga'];
+$id = $_POST['id'];
+$cargo='Coordinador facultad';
 
 //en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
 $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `integrante` (`cedula`, `nombre`, `apellido`, `correo`, `telefono`, `carga`) VALUES ('$cedula', '$nombre', '$apellido', '$correo', '$telefono', '$carga')";
+$sqlInsertar = "INSERT INTO `integrante` (`CedulaIntegrante`, `NombreIntegrante`, `ApellidoIntegrante`, `CorreoIntegrante`, `TelefonoIntegrante`, `CargaHoraria`, `Cargo`,`Proyecto_CodigoProyecto`) VALUES ('$cedula', '$nombre', '$apellido', '$correo', '$telefono', '$carga','$cargo','$id')";
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");

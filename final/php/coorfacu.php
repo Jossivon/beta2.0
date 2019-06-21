@@ -1,3 +1,11 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -42,12 +50,12 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from integrante ";
+                      $sqlMostrar="select * from integrante where Proyecto_CodigoProyecto=$id";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['cedula']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['carga'];
+                    $variables=$row['CedulaIntegrante']."||".$row['NombreIntegrante']."||".$row['ApellidoIntegrante']."||".$row['CorreoIntegrante']."||".$row['TelefonoIntegrante']."||".$row['CargaHoraria'];
                     printf("<tr><td>&nbsp;%s</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -57,7 +65,7 @@
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['cedula'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['carga']);
+                              </div></td></tr>", $row['CedulaIntegrante'],$row['NombreIntegrante'],$row['ApellidoIntegrante'],$row['CorreoIntegrante'],$row['TelefonoIntegrante'],$row['CargaHoraria']);
                     }
                   ?>
               </tbody>
@@ -73,7 +81,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php?id=<?php echo $id?>">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -243,4 +251,7 @@
  </div>
 </div>
 
+<?php
+  }
 
+?>

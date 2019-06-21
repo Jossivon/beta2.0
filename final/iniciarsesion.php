@@ -26,6 +26,10 @@
         <div class="formulario">
           <h2>Iniciar Sesión</h2>
           <form action="php/login.php" method="POST">
+            <select name="perfil">
+              <option value="1">Coordinador General</option>
+              <option value="2">Integrante</option>
+            </select>
             <input type="text" placeholder="Nombre" name="usuario" required>
             <input type="password" placeholder="Contraseña" name="clave" required>
             <input type="submit" value="Iniciar Sesión">
