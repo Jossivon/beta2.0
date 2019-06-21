@@ -144,7 +144,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Coordinador" value = "Coordinador Facultad" disabled >
+                            <input type="text" class="form-control input-lg" name="cargo" placeholder="Coordinador" value = "Coordinador Facultad" disabled >
                       </div>
                     </div>
 

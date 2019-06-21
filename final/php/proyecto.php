@@ -31,19 +31,27 @@
 
         <div class="box-body">
             <caption>Proyectos</caption>
-                <p>Código</p>
-                <p>Nombre del Programa</p>
-                <p>Nombre del Proyecto</p>                
-                <p>Duración</p>
-                <p>Tipo</p>
-                <p>Fecha de inicio</p>
-                <p>Final planificado</p>
-                <p>Final Real</p>
-                <p>Localización</p>
-                <p>Objetivo General</p>
-                <p>Beneficiarios D</p>
-                <p>Beneficiarios I</p>
-                <p>Estado</p>
+                <?php
+                      include 'conexion.php';
+                      $conexion=conectar();
+                      $sqlMostrar="select * from Proyecto where codigoPro = $id ";
+                      $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+
+
+                  while ($row=$result->fetch_array()){
+                    $variables=$row['cedulaI']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['cargaHoraria'];
+                    printf("<p>Nombre del Progama</p>%s"
+                            ."<p>Nombre del Progama</p>%s"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%d&nbsp;</td>"
+                            ."<td><div class=\"btn-group\">
+                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                              </div></td></tr>", $row['nombrePrograma'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['cargaHoraria']);
+                    }
+                  ?>
           
         </div> 
       </div>

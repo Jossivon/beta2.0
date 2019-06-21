@@ -52,6 +52,7 @@
                     $variables=$row['cedulaI']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['cargaHoraria'];
                  printf("<tr> <td>&nbsp;%s</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
+                            
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
