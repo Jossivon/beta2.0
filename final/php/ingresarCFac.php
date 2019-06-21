@@ -10,7 +10,7 @@ $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $carga = $_POST['carga'];
 $id = $_POST['id'];
-$cargo='Coordinador facultad';
+$cargo=$_POST['cargo'];
 
 //en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
 $conexion = conectar();

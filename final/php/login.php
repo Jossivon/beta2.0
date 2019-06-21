@@ -12,9 +12,13 @@
 		$resultado = mysqli_query($conexion,$sql) or die("no se realizo la consulta");
 		$row=$resultado->fetch_assoc();
 
-		if ($row['cedulaU']==$cedula && $row['clave']==$clave && $row['perfil']=$perfil){
+		if ($row['cedulaU']==$cedula && $row['clave']==$clave && $row['perfil']==$perfil){
 			$_SESSION['inicio']='ok';
-				header('Location: proyectos.php?p=$perfil');
+
+			if ($perfil==1)
+				header('Location: proyectos.php?p=1');
+			if($perfil==2)
+				header('Location: proyectos.php?p=2');
 			
 		}else {
 			header('Location:../iniciarsesion.php');

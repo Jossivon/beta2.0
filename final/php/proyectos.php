@@ -21,6 +21,7 @@
 			include('conexion.php');
 
       $perfil=$_GET['p'];
+      var_dump($perfil);
 			$conexion = conectar();
 
 
