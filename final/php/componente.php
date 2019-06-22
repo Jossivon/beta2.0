@@ -80,20 +80,20 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE ----------------------------------------->
+            <!------------------- CODIGO COMPONENTE ----------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" placeholder="Código Componente" required>
              </div>
-             <br>
-               <!------------------CODIGO PROYECTO----------------------------------------->
+             <br>--->
+               <!------------------CODIGO PROYECTO--------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoPro" placeholder="Código Proyecto" required>
              </div>
-             <br>
+             <br>--->
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">

@@ -1,3 +1,10 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
 
 
 <div class="content-wrapper">
@@ -136,6 +143,13 @@
                             <input type="int" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
                       </div>
                     </div>
+                       <!---------------------------------- CARGO------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="text" class="form-control input-lg" name="cargo" placeholder="cargo" value = "Coordinador Carrera" disabled >
+                      </div>
+                    </div>
 
               <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
@@ -271,3 +285,8 @@
   </div>
  </div>
 </div>
+
+<?php
+  }
+
+?>

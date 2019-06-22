@@ -140,11 +140,11 @@
                       </div>
                     </div>
 
-                      <!---------------------------------- CARGA HORARIO ------------------------------------->
+                      <!---------------------------------- CARGO------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargo" placeholder="Coordinador" value = "Coordinador Facultad" disabled >
+                            <input type="text" class="form-control input-lg" name="cargo" placeholder="cargo" value = "Coordinador Facultad" disabled >
                       </div>
                     </div>
 
@@ -201,17 +201,17 @@
 
         <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CEDULA DE INDENTIDAD -------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
              </div>
-             <br>
+             <br>---->
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>

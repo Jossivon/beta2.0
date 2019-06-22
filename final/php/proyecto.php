@@ -1,3 +1,12 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -15,14 +24,7 @@
     <section class="content">
       <!-- Default box -->
       <div class="box">
-         <?php
-                include 'conexion.php';
-                $conexion=conectar();
-                $sqlMostrar="select * from Proyecto ";
-                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
-                
-            ?>
-
+       
         <div class="box-header with-border">
             <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
               Agregar Proyectos
@@ -30,7 +32,8 @@
         </div>
 
         <div class="box-body">
-            <caption>Proyectos</caption>
+  <caption>Proyectos</caption>
+            <tbody>
                 <?php
                       include 'conexion.php';
                       $conexion=conectar();
@@ -39,31 +42,36 @@
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['cedulaI']."||".$row['nombre']."||".$row['apellido']."||".$row['correo']."||".$row['telefono']."||".$row['cargaHoraria'];
-                    printf("<p>Nombre del Progama</p>%s"
+                    $variables=$row['codigoPro']."||".$row['cedulaC']."||".$row['nombrePrograma']."||".$row['nombreProyecto']."||".$row['duracion']."||".$row['tipo']."||".$row['fechaInicio']."||".$row['finalPlanificado']."||".$row['finalReal']."||".$row['localizacion']."||".$row['objetivoGeneral']."||".$row['beneficiariosD']."||".$row['beneficiariosI']."||".$row['estado'];
+                    printf("<p>codigoPro</p>%s"
+                            ."<p>cedulaC</p>%s"
                             ."<p>Nombre del Progama</p>%s"
-                            ."<td>&nbsp;%s&nbsp;</td>"
-                            ."<td>&nbsp;%s&nbsp;</td>"
-                            ."<td>&nbsp;%s&nbsp;</td>"
-                            ."<td>&nbsp;%d&nbsp;</td>"
+                            ."<p>nombreProyecto</p>%s"
+                            ."<p>duracion </p>%d"
+                            ."<p>tipo</p>%s"
+                            ."<p>fechaInicio</p>%s"
+                            ."<p>finalPlanificado</p>%s"
+                            ."<p>finalReal</p>%s"
+                            ."<p>localizacion</p>%s"
+                            ."<p>objetivoGeneral</p>%s"
+                            ."<p>beneficiariosD</p>%s"
+                            ."<p>beneficiariosI</p>%s"
+                            ."<p>estado</p>%s"
+
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['nombrePrograma'],$row['nombre'],$row['apellido'],$row['correo'],$row['telefono'],$row['cargaHoraria']);
+                              </div>
+                              </td></tr>",$row['codigoPro'],$row['cedulaC'],$row['nombrePrograma'],$row['nombreProyecto'],$row['duracion'],$row['tipo'],$row['fechaInicio'],$row['finalPlanificado'],$row['finalReal'],$row['localizacion'],$row['objetivoGeneral'],$row['beneficiariosD'],$row['beneficiariosI'],$row['estado']);
+
                     }
                   ?>
-          
+            </tbody>
         </div> 
       </div>
     </section>
-    <!-- /.content -->
-  </div>
+ </div>
 
-  <script>
-      function capturarid(id){
-          alert(id)
-      }
-</script>
 
 <!-- Modal -->
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
@@ -192,19 +200,19 @@
                       </div>
                     </div>
 
-              <!----------------------------------------- CARGO ----------------------------------------
+              <!----------------------------------------- CARGO ------------------------------------------>
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
+                      <select name="estado" class="form-control input-lg">
+                        <option value="">Inicializado</option>
+                        <option value="">En Ejecucion</option>
+                        <option value="">Finalizado</option>
+                  
                       </select>
                 </div>
               </div>
-
+<!---
 
              <div class="form-group">
                 <div class="panle">Subir foto   </div>
@@ -233,7 +241,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarProy">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -243,14 +251,14 @@
 
       <div class="modal-body">
         <div class="box-body">
-          <!---------------------------------CODIGO PROYECTO----------------------------------------->
+          <!---------------------------------CODIGO PROYECTO--------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoPro" id="codigoProu" required>
              </div>
              <br>
-
+--->
 
           <!-------------------------------------CEDULA DE COORDINADOR ----------------------------------------->
           <div class="form-group">
@@ -280,7 +288,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="duracion" id="duracionu" required>
+                            <input type="int" class="form-control input-lg" name="duracion" id="duracionu" required>
                       </div>
                     </div>
 
@@ -346,13 +354,18 @@
                     </div>
 
                 <!-------------------------ESTADO----------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="estado" id="estadou" required>
-                      </div>
-                    </div>
-
+                   
+   <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                      <select name="estado" class="form-control input-lg" id="estadou>
+                        <option value="">Inicializado</option>
+                        <option value="">En Ejecucion</option>
+                        <option value="">Finalizado</option>
+                  
+                      </select>
+                </div>
+              </div>
                
               <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
@@ -380,9 +393,13 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
  </div>
 </div>
+<?php
+  }
+
+?>

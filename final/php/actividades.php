@@ -1,3 +1,12 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -36,6 +45,7 @@
                 <tr>
                   <th scope="col">&nbsp;Código&nbsp;</th>
                   <th scope="col">&nbsp;Nombre Actividad&nbsp;</th>
+                  <th scope="col">&nbsp;Descripción&nbsp;</th>                  
                   <th scope="col">&nbsp;Fecha Inicio&nbsp;</th>
                   <th scope="col">&nbsp;Fecha Fin&nbsp;</th>
                   
@@ -50,8 +60,9 @@
                             ."<td>&nbsp;%d&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td></tr>"
-                            ,$row['codigo'],$row['nombre'],$row['fechainicio'],$row['fechafin'],$row['codigo']); 
+                            ,$row['codigoA'],$row['nombreA'],$row['descripcion'],$row['fechainicio'],$row['fechafin'],$row['codigoA']); 
                     }
                   ?>
               </tbody>
@@ -86,14 +97,29 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoactivi" placeholder="Código" required>
+                    <input type="int" class="form-control input-lg" name="codigoA" placeholder="Código Actividad" required>
              </div>
              <br>
-        <!-------------------------------- NOMBRE DE ACTIVIDAD--------------------------------->
+
+      <!----------------- CODIGO----------------------------------------->
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                    <input type="int" class="form-control input-lg" name="codigoC" placeholder="Código Coordinador" required>
+             </div>
+             <br>    
+                 <!-------------------------------- NOMBRE DE ACTIVIDAD--------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreactivi" placeholder="Nombre Actividad" required>
+                      <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripcion Actividad" required>
+                </div>
+              </div>
+    <!-------------------------------- NOMBRE DE activiTIVIDAD--------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombreA" placeholder="Nombre Actividad" required>
                 </div>
               </div>
 
@@ -101,7 +127,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="fechainicio" placeholder="Fecha Inicio" required>
+                      <input type="text" class="form-control input-lg" name="fechaInicio" placeholder="Fecha Inicio" required>
                 </div>
               </div>
 
@@ -109,13 +135,24 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechafin" placeholder="Fecha Fin">
+                            <input type="text" class="form-control input-lg" name="fechaFin" placeholder="Fecha Fin">
                       </div>
                     </div>
 
               
 
-                
+                 <!----------------------------------------- CARGO ------------------------------------------>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                      <select name="estado" class="form-control input-lg">
+                        <option value="">Inicializado</option>
+                        <option value="">En Ejecucion</option>
+                        <option value="">Finalizado</option>
+                  
+                      </select>
+                </div>
+              </div>
               
             <!----------------------------------------- SUBIR ARCHIVO ---------------------------------------->
 
@@ -147,7 +184,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarActivi">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -157,19 +194,27 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO ACTIVIDAD----------------------------------------->
+            <!------------------- CODIGO ACTIVIDAD---------------------------------------
           <div class="form-group">
+              <input type="text" hidden="" id="codigoA">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoactivi" required>
              </div>
              <br>
-        
+        -->
               <!-------------------------------- NOMBRE ACTIVIDAD--------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreactivi" required>
+                      <input type="text" class="form-control input-lg" name="nombreA" id ="nombreAu"required>
+                </div>
+              </div>
+               <!-------------------------------- NOMBRE ACTIVIDAD--------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="descripcion" id ="descripcionu"required>
                 </div>
               </div>
 
@@ -177,7 +222,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechainicio">
+                            <input type="text" class="form-control input-lg" name="fechaInicio" id ="fechaIniciou">
                       </div>
                     </div>
 
@@ -185,11 +230,22 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechafin">
+                            <input type="text" class="form-control input-lg" name="fechaFin" id="fechaFinu">
                       </div>
                     </div>
 
-                
+                   <!-------------------------ESTADO------------------------------------------>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                      <select name="estado" class="form-control input-lg">
+                        <option value="">Inicializado</option>
+                        <option value="">En Ejecucion</option>
+                        <option value="">Finalizado</option>
+                  
+                      </select>
+                </div>
+              </div>
               <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
                 <div class="input-group">
@@ -217,9 +273,14 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
  </div>
 </div>
+
+<?php
+  }
+
+?>
