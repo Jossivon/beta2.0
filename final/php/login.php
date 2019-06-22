@@ -8,17 +8,14 @@
 	$conexion = conectar(); 
 
 	if (preg_match('/^[a-zA-Z0-9]+$/',$cedula) && preg_match('/^[a-zA-Z0-9]+$/',$clave)){
-		$sql="select * from Usuario where cedulaU='$cedula' and clave='$clave ' and perfil='$perfil'";
+		session_start();
+		$sql="select * from Usuario where cedulaU='$cedula' and clave='$clave' and perfil='$perfil'";
 		$resultado = mysqli_query($conexion,$sql) or die("no se realizo la consulta");
-		$row=$resultado->fetch_assoc();
+		$row=$resultado->fetch_array();
 
 		if ($row['cedulaU']==$cedula && $row['clave']==$clave && $row['perfil']==$perfil){
 			$_SESSION['inicio']='ok';
-
-			if ($perfil==1)
-				header('Location: proyectos.php?p=1');
-			if($perfil==2)
-				header('Location: proyectos.php?p=2');
+				header("Location: proyectos.php?p=$perfil&cedula=$cedula");
 			
 		}else {
 			header('Location:../iniciarsesion.php');

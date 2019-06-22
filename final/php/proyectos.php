@@ -20,13 +20,23 @@
 			echo '<h1>BIENVENIDO</h1>';
 			include('conexion.php');
 
+      $cedula=$_GET['cedula'];
       $perfil=$_GET['p'];
-      var_dump($perfil);
+      //var_dump($id);
+      //var_dump($perfil);
 			$conexion = conectar();
 
 
+      if($perfil==1){
+          $sql = "select * from Proyecto where cedulaC ='$cedula'" or die('No se realizo la consulta');
+      }
 
-			$sql = "select * from Proyecto";
+      if($perfil==2){
+          $sql = "select I.codigoPro,P.nombrePrograma, P.nombreProyecto
+                  from Integrantes I, Proyecto P
+                  where I.codigoPro=P.codigoPro and I.cedulaI='$cedula'";
+      }
+			
 			$resultado=mysqli_query($conexion,$sql) or die('No se realizo la consulta');
 	?>
 		<section id="proyectos">
@@ -38,9 +48,10 @@
               </div>
               
               <div class="row">
+              
+
               <?php while($row=$resultado->fetch_assoc()){ ?>
 
-              
                 <div class="col-md-4">
                   <div class="card" style="width: 18rem;">
                       <img src="../interfaz/imagenes/proyecto.jpg" class="card-img-top" alt="proyecto">
@@ -51,13 +62,14 @@
                       </div>
                   </div>
                 </div>
-            <?php } ?>
+              <?php } ?>
+
               </div>
           </div>
         </section>
     <?php 
     	}else{
-    		header('Location:../iniciarsesion.php');
+    		echo 'FALLO LA CONEXION';
     	}
     ?>
 </body>

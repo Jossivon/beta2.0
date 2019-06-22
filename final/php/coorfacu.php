@@ -2,7 +2,6 @@
   session_start(); 
 
   if(!isset($_SESSION["inicio"])){
-
     $id=$_SESSION['idp'];
 ?>
 
@@ -27,7 +26,7 @@
       <div class="box">
            
           <div class="box-header with-border">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu" onclick=""> 
                 Agregar Integrantes
               </button>
           </div>
@@ -51,7 +50,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Integrantes where codigoPro = $id ";
+                      $sqlMostrar="select * from Integrantes where codigoPro = $id";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -82,7 +81,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -90,21 +89,21 @@
           <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
-
       <div class="modal-body">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulaI" placeholder="Cédula" required>
-             </div>
-             <br>
+             <div class="form-group">
+                  <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                        <input type="text" class="form-control input-lg" name="cedulaI" id="cedula" placeholder="Cédula" required>
+                 </div>
+              </div>
+            
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" placeholder="Nombre del integrante" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" placeholder="Nombre del integrante" required>
                 </div>
               </div>
 
@@ -112,65 +111,59 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" placeholder="Apellido del integrante" required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  placeholder="Apellido del integrante" required>
                 </div>
               </div>
 
               <!------------------------------------CORREO--------------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" placeholder="Correo">
-                      </div>
-                    </div>
-
-              <!------------------------------------- TELEFONO --------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefono" placeholder="Telefono" >
-                      </div>
-                    </div>
-
-                <!---------------------------------- CARGA HORARIO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
-                      </div>
-                    </div>
-
-                      <!---------------------------------- CARGA HORARIO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Coordinador" value = "Coordinador Facultad" disabled >
-                      </div>
-                    </div>
-
-              <!----------------------------------------- CARGO ----------------------------------------
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
-                      </select>
+                    <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                      <input type="email" class="form-control input-lg" name="correo" id="correo" placeholder="Correo">
                 </div>
               </div>
 
+              <!------------------------------------- TELEFONO --------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" placeholder="Telefono" >
+                </div>
+              </div>
 
-             <div class="form-group">
-                <div class="panle">Subir foto   </div>
-                <input type="file" id="foto" name="nuevafoto">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>-->
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
+                      <input type="text" class="form-control input-lg" name="cargaHoraria" id="cargaHoraria" placeholder="Carga Horaria" required>
+                </div>
+              </div>
+
+                      <!------------------------------- CARGO-------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Coordinador" id="cargo" value="Coordinador Facultad">
+                </div>
+              </div>
+
+              
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                      <select name="facultad" id="facultad" class="form-control input-lg">
+                        <option value="1">Administracion de empresas</option>
+                        <option value="2">Ciencias</option>
+                        <option value="3">Ciencias Pecuarias</option>
+                        <option value="4">Informatica y eletronica</option>
+                        <option value="5">Mecanica</option>
+                        <option value="6">Recursos Naturales</option>
+                        <option value="7">Salud publica</option>
+                      </select>
+                </div>
+              </div>
+ 
          </div>
        </div>
-      </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
@@ -182,14 +175,12 @@
 </div>
 
 
-
-
 <!-- EDITAR -->
 
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -198,16 +189,15 @@
         </div>
 
       <div class="modal-body">
-
-        <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
-             </div>
-             <br>
+
+              <p id="cedulau"></p>
+              <div class="form-group">
+                  <div class="input-group">
+                        <input type="hidden" class="form-control input-lg" name="cedulaI" id="cedulaIu">
+                 </div>
+              </div>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -225,44 +215,44 @@
               </div>
 
               <!------------------------------------CORREO--------------------------------------------->
-                    <div class="form-group">
+              <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
-                    </div>
+              </div>
 
               <!------------------------------------- TELEFONO --------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
-                      </div>
-                    </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
+                </div>
+              </div>
 
                 <!---------------------------------- CARGA HORARIO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
-                      </div>
-                    </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                      <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
+                </div>
+              </div>
+
+               
+          </div>
          </div>
-       </div>
-      </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-      </div>
+        <button type="submit" class="btn btn-primary">Guardar datos</button>
+      </di>
+
     </form>
   </div>
  </div>
 </div>
 
-
-
 <?php
   }
-
 ?>
+

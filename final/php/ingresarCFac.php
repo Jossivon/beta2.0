@@ -1,31 +1,29 @@
 <?php
 
-//uso el include para insertar codigo de otro archivo php es como si llamara o todo ese fragmento de codigo del otro archivo
-// el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
-$cedula = $_POST['cedula'];
+
+$conexion = conectar();
+
+$cedula = $_POST['cedulaI'];
+$codigoFacultad = $_POST['facultad'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
-$carga = $_POST['carga'];
-$id = $_POST['id'];
+$carga = $_POST['cargaHoraria'];
 $cargo=$_POST['cargo'];
 
-//en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
-$conexion = conectar();
+session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+    $id=$_SESSION['idp'];
+  }
+
+$sqlInsertar = "INSERT INTO Integrantes (cedulaI, codigoPro, codigoFacultad, nombre, apellido, correo, telefono, cargaHoraria, cargo) VALUES ('$cedula', $id,$codigoFacultad ,'$nombre', '$apellido', '$correo', '$telefono', $carga,'$cargo')" or die('No se realizo la consulta');
 
 
-//la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `integrante` (`CedulaIntegrante`, `NombreIntegrante`, `ApellidoIntegrante`, `CorreoIntegrante`, `TelefonoIntegrante`, `CargaHoraria`, `Cargo`,`Proyecto_CodigoProyecto`) VALUES ('$cedula', '$nombre', '$apellido', '$correo', '$telefono', '$carga','$cargo','$id')";
-
-//la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
-//forma para imprimir un alert en PHP / puede borrarlo si desea devuelve 1 si la consulta se hace satisfactoriamente para 
-echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado . '");</script>';
-
-//siempre es aconsejable cerrar la conexion pues si no lo hace puede estar utilizando espacio en memoria y puede colapsar la base
 cerrar($conexion);
 
 
