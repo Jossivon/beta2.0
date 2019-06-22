@@ -1,3 +1,11 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
 <div class="content-wrapper">
 
     <!-- Content Header (Page header) -->
@@ -126,7 +134,14 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
+                            <input type="int" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
+                      </div>
+                    </div>
+                          <!---------------------------------- CARGO------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                            <input type="text" class="form-control input-lg" name="cargo" placeholder="cargo" value = "Estudiante" disabled >
                       </div>
                     </div>
               <!----------------------------------------- CARGO ----------------------------------------
@@ -225,7 +240,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
+                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="cargaHorariau"  required>
                       </div>
                     </div>
          </div>
@@ -234,7 +249,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
@@ -242,3 +257,8 @@
 </div>
 
 
+
+<?php
+  }
+
+?>

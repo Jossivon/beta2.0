@@ -2,10 +2,6 @@
 
 include 'conexion.php';
 
-$conexion = conectar();
-
-$cedula = $_POST['cedulaI'];
-$codigoFacultad = $_POST['facultad'];
 $nombre = $_POST['nombre'];
 $apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
@@ -13,7 +9,7 @@ $telefono = $_POST['telefono'];
 $carga = $_POST['cargaHoraria'];
 $cargo=$_POST['cargo'];
 
-session_start(); 
+session_start();
 
   if(!isset($_SESSION["inicio"])){
     $id=$_SESSION['idp'];
@@ -25,6 +21,3 @@ $sqlInsertar = "INSERT INTO Integrantes (cedulaI, codigoPro, codigoFacultad, nom
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
 cerrar($conexion);
-
-
-

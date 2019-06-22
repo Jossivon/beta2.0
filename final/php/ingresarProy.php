@@ -55,7 +55,7 @@ $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `proyecto` (`codigoPro`,`cedulaC`,`nombrePrograma`,`nombreProyecto`,`duracion`,`tipo`,`fechaInicio`,`finalPlanificado`,`finalReal `,`localizacion`, `objetivoGeneral`,`beneficiariosD`,`beneficiariosI`) VALUES ('$codigoPro','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechainicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI')";
+$sqlInsertar = "INSERT INTO `Proyecto` (`codigoPro`,`cedulaC`,`nombrePrograma`,`nombreProyecto`,`duracion`,`tipo`,`fechaInicio`,`finalPlanificado`,`finalReal `,`localizacion`, `objetivoGeneral`,`beneficiariosD`,`beneficiariosI`) VALUES ('$codigoPro','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechainicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI')";
 
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 

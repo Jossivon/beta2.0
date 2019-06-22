@@ -1,5 +1,5 @@
-<?php 
-  session_start(); 
+<?php
+  session_start();
 
   if(!isset($_SESSION["inicio"])){
     $id=$_SESSION['idp'];
@@ -24,9 +24,9 @@
     <section class="content">
       <!-- Default box -->
       <div class="box">
-           
+
           <div class="box-header with-border">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu" onclick=""> 
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu" onclick="">
                 Agregar Integrantes
               </button>
           </div>
@@ -70,7 +70,7 @@
                   ?>
               </tbody>
             </table>
-          </div> 
+          </div>
       </div>
    </section>
 </div>
@@ -98,7 +98,7 @@
                         <input type="text" class="form-control input-lg" name="cedulaI" id="cedula" placeholder="Cédula" required>
                  </div>
               </div>
-            
+
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -139,6 +139,7 @@
                 </div>
               </div>
 
+
                       <!------------------------------- CARGO-------------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -146,7 +147,8 @@
                 </div>
               </div>
 
-              
+
+
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-users"></i></div>
@@ -161,7 +163,7 @@
                       </select>
                 </div>
               </div>
- 
+
          </div>
        </div>
 
@@ -195,13 +197,13 @@
               <p id="cedulau"></p>
               <div class="form-group">
                   <div class="input-group">
-                        <input type="hidden" class="form-control input-lg" name="cedulaI" id="cedulaIu">
+                        <input type="hidden" class="form-control input-lg" name="cedulaI">
                  </div>
               </div>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
@@ -238,7 +240,7 @@
                 </div>
               </div>
 
-               
+
           </div>
          </div>
 
@@ -255,4 +257,3 @@
 <?php
   }
 ?>
-

@@ -3,26 +3,22 @@
 //uso el include para insertar codigo de otro archivo php es como si llamara o todo ese fragmento de codigo del otro archivo
 // el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
-$codigoC = $_POST['codigoC'];
-$codigoPro = $_POST['codigoPro'];
-$descripcion = $_POST['descripcion'];
-$nombre = $_POST['nombre'];
+$codigoC = $_POST['codigoCu'];
+$codigoPro = $_POST['codigoProu'];
+$descripcion = $_POST['descripcionu'];
+$nombre = $_POST['nombreu'];
 //$estado = $_POST['fechafin'];
-$estado = $_POST['estado'];
+$estado = $_POST['estadou'];
+//..............................................
 
-//el metodo vardump solo era para ver el tipo y valor de una variable, si quiere puede borrarla la puede aplicar en cualquier parte
-var_dump($codigoC);
-var_dump($codigoPro);
-var_dump($descripcion);
-var_dump($nombre);
-var_dump($estado);
 
 //en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
 $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `Componente` (`codigoC`, `codigoPro`, `descripcion`, `nombre`, `estado`) VALUES ('$codigoC', '$codigoPro', '$descripcion', '$nombre','$estado')";
+$sqlInsertar = "UPDATE Componente SET codigoC='$codigoCu',codigoPro='$codigoProu', descripcion='$descripcionu', nombreA='$nombreu', estado='$estado' where codigoC='$codigoC'";
+
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
@@ -32,3 +28,4 @@ echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado .
 
 //siempre es aconsejable cerrar la conexion pues si no lo hace puede estar utilizando espacio en memoria y puede colapsar la base
 cerrar($conexion);
+
