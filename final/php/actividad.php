@@ -20,8 +20,7 @@
                 include 'conexion.php';
                 $conexion=conectar();
                 $sqlMostrar="select * from activi ";
-                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
-                
+                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta"); 
             ?>
           <div class="box-header with-border">
               <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
