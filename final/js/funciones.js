@@ -26,7 +26,6 @@ function agregaform(datos){
           d=datos.split('||');
 
           $('#cedulau').val(d[0]);
-          $('#cedulaIu').val(d[0]);
           $('#nombreu').val(d[1]);
           $('#apellidou').val(d[2]);
           $('#correou').val(d[3]);

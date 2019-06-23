@@ -154,6 +154,6 @@
   	include('../footer.html');
 ?>
 
- <script src="js/plantilla.js"></script>
+ <script src="../js/plantilla.js"></script>
 </body>
 </html>

@@ -50,7 +50,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Integrantes where codigoPro = $id";
+                      $sqlMostrar="select * from Integrantes where codigoPro = $id and cargo='Coordinador Facultad'";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -192,14 +192,13 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
 
-              <p id="cedulau"></p>
-              <div class="form-group">
-                  <div class="input-group">
-                        <input type="hidden" class="form-control input-lg" name="cedulaI">
-                 </div>
+             <div class="form-group">
+                <div class="input-group">
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau" required>
+                </div>
               </div>
+                
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">

@@ -18,10 +18,10 @@
 				header("Location: proyectos.php?p=$perfil&cedula=$cedula");
 			
 		}else {
-			header('Location:../iniciarsesion.php');
+			//header('Location:../iniciarsesion.php');
 
-			echo '<script type="text/javascript>alert("Contraseña incorrecta");
-					window.location.href="../iniciarsesion.php";
+			echo'<script type="text/javascript>console.log("Contraseña incorrecta");
+					window.location.href="login.php";
 				  </script>';
 		}
 	}

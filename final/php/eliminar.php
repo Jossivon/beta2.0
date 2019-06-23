@@ -8,7 +8,8 @@ $cedula = $_POST['id'];
 
 $sqlInsertar = "DELETE FROM Integrantes where cedulaI='$cedula'";
  
-echo $resultado = mysqli_query($conexion, $sqlInsertar);
+$resultado = mysqli_query($conexion, $sqlInsertar);
 
+header("Location: plantilla.php?op=2");
 ?>
 

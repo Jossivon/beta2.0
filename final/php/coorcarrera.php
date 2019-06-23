@@ -1,8 +1,7 @@
 <?php 
   session_start(); 
 
-  if(!isset($_SESSION["inicio"])){
-
+  if(isset($_SESSION["inicio"])){
     $id=$_SESSION['idp'];
 ?>
 
@@ -51,7 +50,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Integrantes";
+                      $sqlMostrar="select * from Integrantes where codigoPro = $id and cargo='Coordinador Carrera'";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -86,7 +85,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCCarr">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -151,26 +150,21 @@
                       </div>
                     </div>
 
-              <!----------------------------------------- CARGO ----------------------------------------
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
-                      </select>
-                </div>
-              </div>
-
-
-             <div class="form-group">
-                <div class="panle">Subir foto   </div>
-                <input type="file" id="foto" name="nuevafoto">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>-->
+                     <!---------------------FACULTAD------------------------------------->
+                   <div class="form-group">
+                      <div class="input-group">
+                        <div class="input-group-addon"><i class="fa fa-users"></i></div>
+                          <select name="facultad" id="facultad" class="form-control input-lg">
+                            <option value="1">Administracion de empresas</option>
+                            <option value="2">Ciencias</option>
+                            <option value="3">Ciencias Pecuarias</option>
+                            <option value="4">Informatica y eletronica</option>
+                            <option value="5">Mecanica</option>
+                            <option value="6">Recursos Naturales</option>
+                            <option value="7">Salud publica</option>
+                          </select>
+                    </div>
+                  </div>
          </div>
        </div>
       </div>

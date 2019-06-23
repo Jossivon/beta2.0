@@ -52,7 +52,5 @@
         </div>
 
     </div>
-<script src="javaScript\jquery-3.1.1.min.js"></script>
-<script src="javaScript\main.js"></script>
   </body>
 </html>
