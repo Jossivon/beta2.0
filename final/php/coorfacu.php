@@ -246,7 +246,7 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
         <button type="submit" class="btn btn-primary">Guardar datos</button>
-      </di>
+      </div>
 
     </form>
   </div>

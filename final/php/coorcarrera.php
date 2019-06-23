@@ -264,10 +264,9 @@
                 <div class="panle">Subir foto   </div>
                 <input type="file" id="foto" name="nuevafoto">
                 <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">-->
-             </div>
-             
-         </div>
+                <img src="vistas/img/usuarios/perfil.png" alt="">
+             </div>    
+         </div>-->
        </div>
       </div>
 

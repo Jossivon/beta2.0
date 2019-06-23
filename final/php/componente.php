@@ -1,3 +1,12 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -28,7 +37,7 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">&nbsp;Código Componente&nbsp;</th>
-                  <th scope="col">&nbsp;Código Proyecto&nbsp;</th>
+  
                   <th scope="col">&nbsp;Descripción&nbsp;</th>
                   <th scope="col">&nbsp;Nombre &nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
@@ -41,13 +50,13 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Componente ";
+                      $sqlMostrar="select * from Componente where codigoPro = $id ";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['codigoC']."||".$row['codigoPro']."||".$row['descripcion']."||".$row['nombre']."||".$row['estado'];
-                  printf("<tr><td>&nbsp;%s</td>"
+                    $variables=$row['codigoC']."||".$row['descripcion']."||".$row['nombre']."||".$row['estado'];
+                  printf("<tr><td>&nbsp;%d</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -55,7 +64,7 @@
                           ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['codigoC'],$row['codigoPro'],$row['descripcion'],$row['nombre'],$row['estado']);
+                              </div></td></tr>", $row['codigoC'],,$row['descripcion'],$row['nombre'],$row['estado']);
                     }
                   ?>
               </tbody>
@@ -70,7 +79,7 @@
 <div class="modal fade" id="modalAgregarCompo"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="post" enctype="multipart/form-data">
+     <form  role="form method="post" enctype="multipart/form-data" action=¨ingresarComp.php¨>
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -80,11 +89,11 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE ----------------------------------------
+            <!------------------- CODIGO COMPONENTE ------------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoC" placeholder="Código Componente" required>
+                    <input type="text" class="form-control input-lg" name="codigoC" id="codigoC" placeholder="Código Componente" required>
              </div>
              <br>--->
                <!------------------CODIGO PROYECTO--------------------------------------
@@ -98,7 +107,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-archive"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripción" required>
+                      <input type="text" class="form-control input-lg" name="descripcion" id=" descripcion" placeholder="Descripción" required>
                 </div>
               </div>
 
@@ -106,14 +115,14 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" placeholder="Nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id ="nombre" placeholder="Nombre" required>
                 </div>
               </div>
               <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" placeholder="Estado" required>
+                      <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado" required>
                 </div>
               </div>
 
@@ -138,7 +147,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarComp.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -150,20 +159,20 @@
 
         <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE----------------------------------------->
+            <!------------------- CODIGO COMPONENTE------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" id="codigoCu"  required>
              </div>
              <br>
-        <!------------------------------CODIGO PROYECTO--------------------------------->
+        <!------------------------------CODIGO PROYECTO-----------------------------
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="codigoPro" id="codigoProu" required>
                 </div>
-              </div>
+              </div>----->---->
 
               <!----------------DESCRIPCION----------------------->
               <div class="form-group">
@@ -196,7 +205,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar </button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
@@ -204,3 +213,8 @@
 </div>
 
 
+
+<?php
+  }
+
+?>

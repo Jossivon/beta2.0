@@ -18,54 +18,18 @@ $beneficiariosD = $_POST['beneficiariosD'];
 $beneficiariosI = $_POST['beneficiariosI'];
 $estado = $_POST['estado'];
 
+session_start();
 
-//el metodo vardump solo era para ver el tipo y valor de una variable, si quiere puede borrarla la puede aplicar en cualquier parte
-var_dump($codigoPro);
-var_dump($cedulaC);
-var_dump($nombrePrograma);
-var_dump($nombreProyecto);
-var_dump($duracion);
-var_dump($tipo);
-var_dump($fechaInicio);
-var_dump($finalPlanificado);
-var_dump($finalReal );
-var_dump($localizacion );
-var_dump($objetivoGeneral);
-var_dump($beneficiariosD);
-var_dump($beneficiariosI;
-
-
-/*
-cedulaC
-nombrePrograma
-nombreProyecto
-duracion
-echainicio
-finalPlanificada
-finalReal 
-localizacion 
-areaDelConocimiento
-subAreaConocimiernto
-objetivoGeneral
-objetivoEspecifico
-*/
-
-//en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
+  if(isset($_SESSION["inicio"])){
+    $id=$_SESSION['idp'];
 $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO `Proyecto` (`codigoPro`,`cedulaC`,`nombrePrograma`,`nombreProyecto`,`duracion`,`tipo`,`fechaInicio`,`finalPlanificado`,`finalReal `,`localizacion`, `objetivoGeneral`,`beneficiariosD`,`beneficiariosI`) VALUES ('$codigoPro','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechainicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI')";
+$sqlInsertar = "INSERT INTO Proyecto (codigoPro,cedulaC, nombrePrograma, nombreProyecto, duracion, tipo, fechaInicio, finalPlanificado, finalReal, localizacion, objetivoGeneral, beneficiariosD, beneficiariosI,$estado) VALUES ('$id','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechainicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI','$estado')" or die('No se realizo la consulta');
 
-
-//la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
-//forma para imprimir un alert en PHP / puede borrarlo si desea devuelve 1 si la consulta se hace satisfactoriamente para 
-echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado . '");</script>';
-
-//siempre es aconsejable cerrar la conexion pues si no lo hace puede estar utilizando espacio en memoria y puede colapsar la base
 cerrar($conexion);
 
-
-
+header("Location: plantilla.php?op=2");
