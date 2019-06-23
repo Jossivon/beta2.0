@@ -88,7 +88,7 @@
   include('../cabezera.html');
   include('../menu.php');
    
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
   	echo '<div class="wrapper">';
     
   	$op='1';

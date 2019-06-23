@@ -20,7 +20,9 @@
 		}else {
 			header('Location:../iniciarsesion.php');
 
-			echo '<script type="text/javascript>alert("Fotos guardadas");</script>';
+			echo '<script type="text/javascript>alert("Contraseña incorrecta");
+					window.location.href="../iniciarsesion.php";
+				  </script>';
 		}
 	}
 

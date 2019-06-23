@@ -16,7 +16,7 @@
     <?php
 		session_start();
 
-		if (!isset($_SESSION['inicio'])){
+		if (isset($_SESSION['inicio'])){
 			echo '<h1>BIENVENIDO</h1>';
 			include('conexion.php');
 
@@ -69,7 +69,7 @@
         </section>
     <?php 
     	}else{
-    		echo 'FALLO LA CONEXION';
+    		include('../iniciarsesion.php');
     	}
     ?>
 </body>

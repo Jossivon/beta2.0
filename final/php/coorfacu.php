@@ -1,7 +1,7 @@
 <?php
   session_start();
 
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
     $id=$_SESSION['idp'];
 ?>
 
