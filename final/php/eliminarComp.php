@@ -6,7 +6,7 @@ $conexion = conectar();
 
 $cedula = $_POST['id'];
 
-$sqlInsertar = "DELETE FROM Componente where codigoC='$codigoC'";
+$sqlInsertar = "DELETE FROM Componente where codigoC='$codigo'";
  
 $resultado = mysqli_query($conexion, $sqlInsertar);
 

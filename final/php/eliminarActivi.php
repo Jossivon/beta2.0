@@ -6,7 +6,7 @@ $conexion = conectar();
 
 $cedula = $_POST['id'];
 
-$sqlInsertar = "DELETE FROM Actividad where codigoA='$codigoA'";
+$sqlInsertar = "DELETE FROM Actividad where codigoA='$codigo'";
  
 $resultado = mysqli_query($conexion, $sqlInsertar);
 

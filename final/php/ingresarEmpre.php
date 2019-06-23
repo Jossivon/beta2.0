@@ -22,10 +22,6 @@ $conexion = conectar();
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
 $sqlInsertar = "INSERT INTO Empresa (codigoE,nombre, siglas, ciudad, PaginaWeb,telefono, descripcion) VALUES ('$codigoE', '$nombre', '$siglas', '$ciudad', '$PaginaWeb', '$telefono', '$descripcion')"or die('No se realizo la consulta');
 
-//la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
-$resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
-
-
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
@@ -34,3 +30,4 @@ cerrar($conexion);
 header("Location: plantilla.php?op=2");
 
 //modificado L
+?>

@@ -28,9 +28,5 @@ $sqlInsertar = "INSERT INTO Componente (codigoC, codigoPro, descripcion, nombre,
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
-
-//forma para imprimir un alert en PHP / puede borrarlo si desea devuelve 1 si la consulta se hace satisfactoriamente para  echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado . '");</script>';
-
-//siempre es aconsejable cerrar la conexion pues si no lo hace puede estar utilizando espacio en memoria y puede colapsar la base
 cerrar($conexion);
 header("Location: plantilla.php?op=2");

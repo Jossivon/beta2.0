@@ -21,3 +21,5 @@ cerrar($conexion);
 
 header("Location: plantilla.php?op=2");
 //modifiado L
+
+

@@ -77,7 +77,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarProy">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarProy.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -96,7 +96,7 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoPro" placeholder="Código del Proyecto" required>
+                    <input type="text" class="form-control input-lg" name="codigoPro" id="codigoPro" placeholder="Código del Proyecto" required>
              </div>
              <br>
 
@@ -105,7 +105,7 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulaC" placeholder="Cédula Coordinador" required>
+                    <input type="text" class="form-control input-lg" name="cedulaC" id="cedulaC" placeholder="Cédula Coordinador" required>
              </div>
              <br>
 
@@ -113,7 +113,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombrePrograma" placeholder="Nombre del Programa" required>
+                      <input type="text" class="form-control input-lg" name="nombrePrograma" id="nombrePrograma" placeholder="Nombre del Programa" required>
                 </div>
               </div>
 
@@ -121,7 +121,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreProyecto" placeholder="Nombre del Proyecto" required>
+                      <input type="text" class="form-control input-lg" name="nombreProyecto" id="nombreProyecto" placeholder="Nombre del Proyecto" required>
                 </div>
               </div>
 
@@ -129,21 +129,21 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="duracion" placeholder="Duración" required>
+                            <input type="text" class="form-control input-lg" name="duracion"id="duracion" placeholder="Duración" required>
                       </div>
                     </div>
 <!-----------------------------------TIPO-------------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="tipo" placeholder="Tipo" required>
+                            <input type="text" class="form-control input-lg" name="tipo" id="tipo" placeholder="Tipo" required>
                       </div>
                     </div>
               <!--------------------------------INICIO--------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechaInicio" placeholder="Fecha Inicio" required >
+                            <input type="text" class="form-control input-lg" name="fechaInicio" id="fechaInicio" placeholder="Fecha Inicio" required >
                       </div>
                     </div>
     
@@ -151,21 +151,21 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="finalPlanificado" placeholder="Final Planificado" required>
+                            <input type="text" class="form-control input-lg" name="finalPlanificado" id="finalPlanificado" placeholder="Final Planificado" required>
                       </div>
                     </div>
                 <!---------------------------------- FINAL REAL ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="finalReal " placeholder="Final Real" required>
+                            <input type="text" class="form-control input-lg" name="finalReal " id="finalReal" placeholder="Final Real"  required>
                       </div>
                     </div>
                 <!---------------------------------- LOCALIZACION------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="localizacion" placeholder="Localización" required>
+                            <input type="text" class="form-control input-lg" name="localizacion" id="localizacion" placeholder="Localización" required>
                       </div>
                     </div>
   
@@ -174,21 +174,21 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="objetivoGeneral" placeholder="Objetivo General" required>
+                            <input type="text" class="form-control input-lg" name="objetivoGeneral" id="objetivoGeneral" placeholder="Objetivo General" required>
                       </div>
                     </div>
                 <!--------------------------------BENEFICIARIOS D------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="beneficiariosD" placeholder="Beneficiarios D" required>
+                            <input type="text" class="form-control input-lg" name="beneficiariosD" id="beneficiariosD" placeholder="Beneficiarios D" required>
                       </div>
                     </div>
                 <!------------------------------BENEFICIARIOS I------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="beneficiariosI" placeholder="Beneficiarios I" required>
+                            <input type="text" class="form-control input-lg" name="beneficiariosI" id="beneficiariosI" placeholder="Beneficiarios I" required>
                       </div>
                     </div>
 
