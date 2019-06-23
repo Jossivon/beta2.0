@@ -1,7 +1,7 @@
 <?php 
   session_start(); 
 
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
 
     $id=$_SESSION['idp'];
 ?>
@@ -36,8 +36,6 @@
               <caption>COMPONENTES DEL PROYECTO</caption>
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">&nbsp;Código Componente&nbsp;</th>
-  
                   <th scope="col">&nbsp;Descripción&nbsp;</th>
                   <th scope="col">&nbsp;Nombre &nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
@@ -56,15 +54,14 @@
 
                   while ($row=$result->fetch_array()){
                     $variables=$row['codigoC']."||".$row['descripcion']."||".$row['nombre']."||".$row['estado'];
-                  printf("<tr><td>&nbsp;%d</td>"
-                            ."<td>&nbsp;%s&nbsp;</td>"
+                  printf("<tr>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                           ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['codigoC'],,$row['descripcion'],$row['nombre'],$row['estado']);
+                              </div></td></tr>",$row['descripcion'],$row['nombre'],$row['estado']);
                     }
                   ?>
               </tbody>

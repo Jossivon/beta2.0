@@ -1,7 +1,7 @@
 <?php 
   session_start(); 
 
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
 
     $id=$_SESSION['idp'];
 ?>
@@ -78,6 +78,7 @@
 
 
 <!-- Modal AGREGAR-->
+
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
@@ -86,10 +87,10 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR ESTUDIANTE</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
-<div class="modal-body">
+      <div class="modal-body">
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
              <div class="form-group">
@@ -143,7 +144,7 @@
                       <!------------------------------- CARGO-------------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Estudiante" id="cargo" value="Estudiante">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Coordinador" id="cargo" value="Estudiante">
                 </div>
               </div>
 
@@ -163,8 +164,9 @@
                       </select>
                 </div>
               </div>
+
+         </div>
        </div>
-      </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>

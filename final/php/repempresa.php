@@ -5,6 +5,7 @@
     $id=$_SESSION['idp'];
 ?>
 
+<div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
@@ -41,18 +42,17 @@
             </tr>
           </thead>
 
- <tbody>
+          <tbody>
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from RepresentanteEmpresa where codigoPro = $id and cargo='Representante Empresa'";
+                      $sqlMostrar="select * from RepresentanteEmpresa where codigoPro = $id";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['cedulaRep']."||".$row['nombreR']."||".$row['apellidoR']."||".$row['correo']."||".$row['telefono']."||".$row['cargo'];
+                    $variables=$row['cedulaRep']."||".$row['nombreR']."||".$row['apellidoR']."||".$row['correo']."||".$row['telefono'];
                     printf("<tr><td>&nbsp;%s</td>"
-                            ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -60,7 +60,7 @@
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['cedulaRep'],$row['nombreR'],$row['apellidoR'],$row['correo'],$row['telefono'],$row['cargo']);
+                              </div></td></tr>", $row['cedulaRep'],$row['nombreR'],$row['apellidoR'],$row['correo'],$row['telefono']);
                     }
                   ?>
               </tbody>

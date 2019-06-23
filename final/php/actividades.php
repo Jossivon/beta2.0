@@ -1,7 +1,7 @@
 <?php 
   session_start(); 
 
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
 
     $id=$_SESSION['idp'];
 ?>
@@ -12,7 +12,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        CACTIVIDAD
+        ACTIVIDAD
         <small>TABLERO DE ACTIVIDADES</small>
       </h1>
       <ol class="breadcrumb">
@@ -28,7 +28,13 @@
             <?php
                 include 'conexion.php';
                 $conexion=conectar();
-                $sqlMostrar="select * from Actividad where codigoPro = $id ";
+                $sqlMostrar="select A.nombreA, A.fechaInicio, A.fechaFin, A.estado, A.descripcion
+                              from Proyecto P
+                              INNER JOIN Componente C
+                              On P.codigoPro = C.codigoPro
+                              INNER JOIN Actividad A
+                              On A.CodigoC = C.CodigoC
+                              where P.codigoPro = $id";
                 $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
                 
             ?>
@@ -43,7 +49,6 @@
               <caption>ACTIVIDAD</caption>
               <thead class="thead-dark">
                 <tr>
-                  <th scope="col">&nbsp;Código&nbsp;</th>
                   <th scope="col">&nbsp;Nombre Actividad&nbsp;</th>
                   <th scope="col">&nbsp;Descripción&nbsp;</th>                  
                   <th scope="col">&nbsp;Fecha Inicio&nbsp;</th>
@@ -56,13 +61,12 @@
                   <?php
 
                   while ($row=$result->fetch_assoc()){
-                    printf("<tr><td scope=\"row\">%s</td>"
-                            ."<td>&nbsp;%d&nbsp;</td>"
+                    printf("<tr>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td></tr>"
-                            ,$row['codigoA'],$row['nombreA'],$row['descripcion'],$row['fechainicio'],$row['fechafin'],$row['codigoA']); 
+                            ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin']); 
                     }
                   ?>
               </tbody>

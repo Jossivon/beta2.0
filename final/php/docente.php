@@ -1,7 +1,7 @@
 <?php 
   session_start(); 
 
-  if(!isset($_SESSION["inicio"])){
+  if(isset($_SESSION["inicio"])){
 
     $id=$_SESSION['idp'];
 ?>
@@ -144,7 +144,7 @@
                       <!------------------------------- CARGO-------------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Docente" id="cargo" value="Docente">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Docente" id="cargou" value="Docente">
                 </div>
               </div>
 
@@ -180,7 +180,7 @@
 
 
 <!-- EDITAR -->
-div class="modal fade" id="modalEditar"  role="dialog" >
+<div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
      <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php">
@@ -192,20 +192,18 @@ div class="modal fade" id="modalEditar"  role="dialog" >
         </div>
 
       <div class="modal-body">
-
-         <!--<input type="text" hidden="" id="cedulaI">-->
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ------------------------------------
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
-             </div>
-             <br>----->
+
+             <div class="form-group">
+                <div class="input-group">
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau" required>
+                </div>
+              </div>
+                
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
@@ -219,36 +217,38 @@ div class="modal fade" id="modalEditar"  role="dialog" >
               </div>
 
               <!------------------------------------CORREO--------------------------------------------->
-                    <div class="form-group">
+              <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
-                    </div>
+              </div>
 
               <!------------------------------------- TELEFONO --------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
-                      </div>
-                    </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
+                </div>
+              </div>
 
                 <!---------------------------------- CARGA HORARIO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="cargaHorariau"  required>
-                      </div>
-                    </div>
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                      <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
+                </div>
+              </div>
+
+
+          </div>
          </div>
-       </div>
-      </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button type="submit" class="btn btn-primary">Guardar datos</button>
       </div>
+
     </form>
   </div>
  </div>

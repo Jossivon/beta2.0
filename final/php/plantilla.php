@@ -107,7 +107,7 @@
   			break;
 
   		case '3':
-  			include('coocarrera.php');
+  			include('coorcarrera.php');
   			break;
 
   		case '4':
@@ -129,7 +129,7 @@
   			break;
 
   		case '8':
-  			include('actividad.php');
+  			include('actividades.php');
   			break;
 
   		case '9':
