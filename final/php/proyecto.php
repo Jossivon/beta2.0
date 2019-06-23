@@ -192,19 +192,19 @@
                       </div>
                     </div>
 
-                <!---------------------------ESTADO------------------------------------>
+                <!---------------------------ESTADO----------------------------------
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="text" class="form-control input-lg" name="estado" placeholder="Estado" required>
                       </div>
-                    </div>
+                    </div>-->
 
-              <!----------------------------------------- CARGO ------------------------------------------>
+              <!--ESTADO------------------------------------------>
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="estado" class="form-control input-lg">
+                      <select name="estado" id="estado" class="form-control input-lg">
                         <option value="">Inicializado</option>
                         <option value="">En Ejecucion</option>
                         <option value="">Finalizado</option>

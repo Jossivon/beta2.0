@@ -11,6 +11,11 @@ $PaginaWeb = $_POST['PaginaWeb'];
 $telefono = $_POST['telefono'];
 $descripcion = $_POST['descripcion'];
 //en su conexion.php hice dos metodos el uno conectar para cuando haga una peticion primero haga la conexion valga la redundancia
+session_start();
+
+  if(isset($_SESSION["inicio"])){
+    $id=$_SESSION['idp'];
+  }
 $conexion = conectar();
 
 
@@ -20,12 +25,12 @@ $sqlInsertar = "INSERT INTO Empresa (codigoE,nombre, siglas, ciudad, PaginaWeb,t
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
-//forma para imprimir un alert en PHP / puede borrarlo si desea devuelve 1 si la consulta se hace satisfactoriamente para 
-/*echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado . '");</script>'; */
 
-//siempre es aconsejable cerrar la conexion pues si no lo hace puede estar utilizando espacio en memoria y puede colapsar la base
+
+$resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
+
 cerrar($conexion);
 
 header("Location: plantilla.php?op=2");
 
-
+//modificado L

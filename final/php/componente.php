@@ -37,7 +37,7 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">&nbsp;Código Componente&nbsp;</th>
-                  <th scope="col">&nbsp;Código Proyecto&nbsp;</th>
+  
                   <th scope="col">&nbsp;Descripción&nbsp;</th>
                   <th scope="col">&nbsp;Nombre &nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
@@ -55,8 +55,8 @@
 
 
                   while ($row=$result->fetch_array()){
-                    $variables=$row['codigoC']."||".$row['codigoPro']."||".$row['descripcion']."||".$row['nombre']."||".$row['estado'];
-                  printf("<tr><td>&nbsp;%s</td>"
+                    $variables=$row['codigoC']."||".$row['descripcion']."||".$row['nombre']."||".$row['estado'];
+                  printf("<tr><td>&nbsp;%d</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
@@ -64,7 +64,7 @@
                           ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
-                              </div></td></tr>", $row['codigoC'],$row['codigoPro'],$row['descripcion'],$row['nombre'],$row['estado']);
+                              </div></td></tr>", $row['codigoC'],,$row['descripcion'],$row['nombre'],$row['estado']);
                     }
                   ?>
               </tbody>
@@ -93,21 +93,21 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoC" placeholder="Código Componente" required>
+                    <input type="text" class="form-control input-lg" name="codigoC" id="codigoC" placeholder="Código Componente" required>
              </div>
              <br>--->
-               <!------------------CODIGO PROYECTO----------------------------------------->
+               <!------------------CODIGO PROYECTO--------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoPro" placeholder="Código Proyecto" required>
              </div>
-             <br>
+             <br>--->
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-archive"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripción" required>
+                      <input type="text" class="form-control input-lg" name="descripcion" id=" descripcion" placeholder="Descripción" required>
                 </div>
               </div>
 
@@ -115,14 +115,14 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" placeholder="Nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id ="nombre" placeholder="Nombre" required>
                 </div>
               </div>
               <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" placeholder="Estado" required>
+                      <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado" required>
                 </div>
               </div>
 
@@ -159,20 +159,20 @@
 
         <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE----------------------------------------->
+            <!------------------- CODIGO COMPONENTE------------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" id="codigoCu"  required>
              </div>
              <br>
-        <!------------------------------CODIGO PROYECTO--------------------------------->
+        <!------------------------------CODIGO PROYECTO-----------------------------
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="codigoPro" id="codigoProu" required>
                 </div>
-              </div>
+              </div>----->---->
 
               <!----------------DESCRIPCION----------------------->
               <div class="form-group">
