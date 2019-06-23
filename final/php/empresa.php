@@ -1,3 +1,11 @@
+
+<?php
+  session_start();
+
+  if(isset($_SESSION["inicio"])){
+    $id=$_SESSION['idp'];
+?>
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -43,7 +51,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Empresa ";
+                      $sqlMostrar="select * from Empresa where codigoE=$id";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -75,7 +83,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarEmpre">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarEmpre.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -90,14 +98,14 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="int" class="form-control input-lg" name="codigoE" placeholder="Código Empresa" required>
+                    <input type="int" class="form-control input-lg" name="codigoE" id="codigo"placeholder="Código Empresa" required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" placeholder="Nombre de la Empresa" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre"placeholder="Nombre de la Empresa" required>
                 </div>
               </div>
 
@@ -105,7 +113,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="siglas" placeholder="Siglas" required>
+                      <input type="text" class="form-control input-lg" name="siglas" id="siglas" placeholder="Siglas" required>
                 </div>
               </div>
 
@@ -113,7 +121,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="ciudad" placeholder="Ciudad">
+                            <input type="text" class="form-control input-lg" name="ciudad" id="ciudad" placeholder="Ciudad">
                       </div>
                     </div>
 
@@ -121,7 +129,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="PaginaWeb" placeholder="Página Web" >
+                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWeb"placeholder="Página Web" >
                       </div>
                     </div>
 
@@ -129,7 +137,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="int" class="form-control input-lg" name="telefono" placeholder="Teléfono" required>
+                            <input type="int" class="form-control input-lg" name="telefono" id="telefono" placeholder="Teléfono" required>
                       </div>
                     </div>
 
@@ -137,7 +145,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripción" required>
+                            <input type="text" class="form-control input-lg" name="descripcion" id="descripcion" placeholder="Descripción" required>
                       </div>
                     </div>
 
@@ -189,7 +197,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR EMPRESA</h5>
         </div>
 
       <div class="modal-body">
@@ -263,3 +271,7 @@
 </div>
 
 
+
+<?php
+  }
+?>

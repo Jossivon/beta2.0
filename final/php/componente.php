@@ -1,3 +1,12 @@
+<?php 
+  session_start(); 
+
+  if(!isset($_SESSION["inicio"])){
+
+    $id=$_SESSION['idp'];
+?>
+
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
@@ -41,7 +50,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Componente ";
+                      $sqlMostrar="select * from Componente where codigoPro = $id ";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -70,7 +79,7 @@
 <div class="modal fade" id="modalAgregarCompo"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="post" enctype="multipart/form-data">
+     <form  role="form method="post" enctype="multipart/form-data" action=¨ingresarComp.php¨>
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -80,20 +89,20 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE ----------------------------------------
+            <!------------------- CODIGO COMPONENTE ------------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" placeholder="Código Componente" required>
              </div>
              <br>--->
-               <!------------------CODIGO PROYECTO--------------------------------------
+               <!------------------CODIGO PROYECTO----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoPro" placeholder="Código Proyecto" required>
              </div>
-             <br>--->
+             <br>
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -138,7 +147,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarComp.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -196,7 +205,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar </button>
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </form>
   </div>
@@ -204,3 +213,8 @@
 </div>
 
 
+
+<?php
+  }
+
+?>

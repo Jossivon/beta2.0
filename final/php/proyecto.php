@@ -226,7 +226,7 @@
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+        <button type="submit" class="btn btn-primary">Agregar Proyecto</button>
       </div>
     </form>
   </div>
@@ -241,7 +241,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarProy">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarProy.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
