@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../js/validar.js"></script>
 <?php
   session_start();
 
@@ -76,7 +77,7 @@
 <div class="modal fade" id="modalAgregarRepEmp"  role="dialog" >
 <div class="modal-dialog">
 <div class="modal-content">
- <form  role="form method="post" enctype="multipart/form-data" action="ingresarRepreEmpre.php">
+ <form  role="form method="post" enctype="multipart/form-data" action="ingresarRepreEmpre.php" onsubmit="return validar()">
    <div class="modal-header" style="background: #39CCCC; color:white">
       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
         <span aria-hidden="true">&times;</span>
@@ -152,7 +153,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php" onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -165,15 +166,15 @@
 
              <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau" required>
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
                 </div>
               </div>
-                
+
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
                 </div>
               </div>
 
@@ -181,7 +182,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
                 </div>
               </div>
 
@@ -189,7 +190,7 @@
               <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
                       </div>
               </div>
 
@@ -197,11 +198,11 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
                 </div>
               </div>
 
-            
+
 
           </div>
          </div>
