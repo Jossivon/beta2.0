@@ -139,13 +139,13 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="int" class="form-control input-lg" name="cargaHoraria" placeholder="Carga Horaria" required>
+                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="carga" placeholder="Carga Horaria" required>
                       </div>
                     </div>
                        <!---------------------------------- CARGO------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                            <input type="hidden" class="form-control input-lg" name="cargo" id="carga" placeholder="cargo" value = "Coordinador Carrera">
+                            <input type="hidden" class="form-control input-lg" name="cargo" id="cargo" placeholder="cargo" value = "Coordinador Carrera">
                       </div>
                     </div>
 
