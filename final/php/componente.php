@@ -82,7 +82,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COMPONENTE</h5>
         </div>
 
       <div class="modal-body">
@@ -106,7 +106,7 @@
               <!--------------------------------NOMBRE --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-book-reader"></i></div>
                       <input type="text" class="form-control input-lg" name="nombre" id ="nombre" placeholder="Nombre" required>
                 </div>
               </div>
@@ -114,7 +114,7 @@
               <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
                     <select name="estado" id="estado" class="form-control input-lg">
                       <option value="">Inicializado</option>
                       <option value="">En Ejecucion</option>
@@ -150,7 +150,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">EDITAR COMPONENTE</h5>
         </div>
 
       <div class="modal-body">
@@ -173,15 +173,15 @@
               <!--------------------------------NOMBRE --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                <!--      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>-->
+                    <div class="input-group-addon"><i class="fa fa-band-aid"></i></div>
+                    <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>
                 </div>
               </div>
 
               <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
                     <select name="estado" id="estadou" class="form-control input-lg">
                       <option value="">Inicializado</option>
                       <option value="">En Ejecucion</option>
