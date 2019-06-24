@@ -1,10 +1,10 @@
+<script type="text/javascript" src="../js/validar.js"></script>
 <?php
   session_start();
 
   if(isset($_SESSION["inicio"])){
     $id=$_SESSION['idp'];
 ?>
-
 
 <div class="content-wrapper">
 
@@ -81,7 +81,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -135,7 +135,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
-                      <input type="text" class="form-control input-lg" name="cargaHoraria" id="cargaHoraria" placeholder="Carga Horaria" required>
+                      <input type="text" class="form-control input-lg" name="cargaHoraria" id="carga" placeholder="Carga Horaria">
                 </div>
               </div>
 
@@ -182,7 +182,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()>
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -195,15 +195,15 @@
 
              <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau" required>
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
                 </div>
               </div>
-                
+
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
                 </div>
               </div>
 
@@ -211,7 +211,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
                 </div>
               </div>
 
@@ -219,7 +219,7 @@
               <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
                       </div>
               </div>
 
@@ -227,7 +227,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
                 </div>
               </div>
 
@@ -235,7 +235,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
+                      <input type="text" class="form-control input-lg" name="carga" id="carga" >
                 </div>
               </div>
 
