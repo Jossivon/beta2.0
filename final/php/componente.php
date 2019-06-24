@@ -1,3 +1,4 @@
+<script type="text/javascript" src="../js/validar.js"></script>
 <?php
   session_start();
 
