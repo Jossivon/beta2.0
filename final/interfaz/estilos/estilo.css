@@ -87,6 +87,23 @@ body {
   line.height: 1p;
 }
 
+.contenedor-form select {
+  outline: none;
+  background: rgba(0, 0, 0, .3);
+  display: black;
+  width: 70%;
+  padding: 10px 15px;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 2px;
+  border-bottom: 3px solid #0035A0;
+  font-family Roboto;
+  font-size: 14px;
+  font-weight: normal;
+  margin: 0 0 20px 45px;
+  transition: all .5s ease;
+}
+
 .contenedor-form input[type="text"],
 .contenedor-form input[type="password"],
 .contenedor-form input[type="email"] {
