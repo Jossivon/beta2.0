@@ -70,7 +70,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
-                              <button class=\"btn-warning\" onclick=\"\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                              <button class=\"btn-warning\" onclick=\"editarA('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\" ></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>"
                             ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin'],$row['estado']); 
@@ -89,113 +89,10 @@
       }
 </script>
 
-<!-- Modal -->
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarActivi">
-       <div class="modal-header" style="background: #39CCCC; color:white">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR ACTIVIDAD</h5>
-        </div>
-
-
-      <div class="modal-body">
-        <div class="box-body">
-            <!----------------- CODIGO----------------------------------------->
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="int" class="form-control input-lg" name="codigoA" placeholder="Código Actividad" required>
-             </div>
-             <br>
-
-      <!----------------- CODIGO----------------------------------------->
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="int" class="form-control input-lg" name="codigoC" placeholder="Código Coordinador" required>
-             </div>
-             <br>    
-                 <!-------------------------------- NOMBRE DE ACTIVIDAD--------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" placeholder="Descripcion Actividad" required>
-                </div>
-              </div>
-    <!-------------------------------- NOMBRE DE activiTIVIDAD--------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreA" placeholder="Nombre Actividad" required>
-                </div>
-              </div>
-
-              <!-------------------------------- FECHA INICIO --------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="fechaInicio" placeholder="Fecha Inicio" required>
-                </div>
-              </div>
-
-              <!---------------------------FECHA FIN-------------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechaFin" placeholder="Fecha Fin">
-                      </div>
-                    </div>
-
-              
-
-                 <!----------------------------------------- CARGO ------------------------------------------>
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="estado" class="form-control input-lg">
-                        <option value="">Inicializado</option>
-                        <option value="">En Ejecucion</option>
-                        <option value="">Finalizado</option>
-                  
-                      </select>
-                </div>
-              </div>
-              
-            <!----------------------------------------- SUBIR ARCHIVO ---------------------------------------->
-
-
-             <div class="form-group">
-                <div class="panle">Subir Archivo  </div>
-                <input type="file" id="foto" name="nuevo archivo">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>
-         </div>
-       </div>
-      </div>
-
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Agregar Actividad</button>
-      </div>
-    </form>
-  </div>
- </div>
-</div>
-
-
-
-
-<!-- EDITAR -->
-
-<div class="modal fade" id="modalEditar"  role="dialog" >
-  <div class="modal-dialog">
-    <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()"">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -205,66 +102,139 @@
 
       <div class="modal-body">
         <div class="box-body">
-
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
              <div class="form-group">
-                <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
-                </div>
+                  <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                        <input type="text" class="form-control input-lg" name="codigo" id="codigo" placeholder="Codigo" required>
+                 </div>
               </div>
 
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" placeholder="Nombre de la actividad" required>
                 </div>
               </div>
 
-              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <!--------------------------DESCRIPCION--------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                      <input type="text" class="form-control input-lg" name="descripcion" id="descripcion"  placeholder="Descripcion de la actividad" required>
                 </div>
               </div>
 
-              <!------------------------------------CORREO--------------------------------------------->
+              <!-------------------FECHA INICIO-------------------------------------->
               <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
-                      </div>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                      <input type="date" class="form-control input-lg" name="fecha" id="fecha" placeholder="Fecha Inicio">
+                </div>
               </div>
 
-              <!------------------------------------- TELEFONO --------------------------------------->
+              <!-----------------FECHA FINAL--------------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
+                      <input type="date" class="form-control input-lg" name="fechaf" id="fechaf" placeholder="Fecha Final" >
                 </div>
               </div>
 
-                <!---------------------------------- CARGA HORARIO ------------------------------------->
+                <!-------------------ESTADO------------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="carga" id="carga" >
+                    <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
+                      <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado">
                 </div>
               </div>
-
-
-          </div>
          </div>
+       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar datos</button>
+        <button type="submit" class="btn btn-primary">Agregar usuario</button>
       </div>
-
     </form>
   </div>
  </div>
 </div>
+
+
+<!-- EDITAR -->
+
+<div class="modal fade" id="modalEditar"  role="dialog" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+       <div class="modal-header" style="background: #39CCCC; color:white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+        </div>
+
+      <div class="modal-body">
+        <div class="box-body">
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+             <div class="form-group">
+                  <div class="input-group">
+                        <input type="hidden" class="form-control input-lg" name="codigo" id="codigou">
+                 </div>
+              </div>
+
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu">
+                </div>
+              </div>
+
+              <!--------------------------DESCRIPCION--------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu">
+                </div>
+              </div>
+
+              <!-------------------FECHA INICIO-------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                      <input type="date" class="form-control input-lg" name="fechai" id="fechaiu">
+                </div>
+              </div>
+
+              <!-----------------FECHA FINAL--------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="date" class="form-control input-lg" name="fechaf" id="fechafu">
+                </div>
+              </div>
+
+                <!-------------------ESTADO------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
+                      <input type="text" class="form-control input-lg" name="estado" id="estadou">
+                </div>
+              </div>
+         </div>
+       </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+      </div>
+    </form>
+  </div>
+ </div>
+</div>
+
 
 <?php
   }

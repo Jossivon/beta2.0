@@ -65,7 +65,7 @@
                             ."<td>&nbsp;%d&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
-                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                              <button class=\"btn-warning\" onclick=\"editarE('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>", $row['codigoE'],$row['nombre'],$row['siglas'],$row['ciudad'],$row['PaginaWeb'],$row['telefono'],$row['descripcion']);
                     }
@@ -192,24 +192,23 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarEmpre.php>
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR EMPRESA</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
       <div class="modal-body">
-
-        <input type="text" hidden="" id="codigoE">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+      
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="int" class="form-control input-lg" name="codigoE" id="codigou"  required>
              </div>
+          </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
@@ -256,20 +255,20 @@
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
                       </div>
-                    </div>
-         </div>
-       </div>
+                    </div>    
+
+        </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button type="submit" class="btn btn-primary">Guardar datos</button>
       </div>
+
     </form>
   </div>
  </div>
 </div>
-
 
 
 <?php

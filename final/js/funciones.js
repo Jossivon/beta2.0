@@ -36,11 +36,13 @@ function editarA(datos){
 
 	d=datos.split('||');
 
-	$('#nombreAu').val(d[1]);
-	$('#descripcionu').val(d[2]);
-	$('#fechaIniciou').val(d[3]);
-	$('#fechaFinu').val(d[4]);
-	$('#estadou').val(d[5]);
+
+	$('#codigou').val(d[0]);
+	$('#nombreu').val(d[2]);
+	$('#descripcionu').val(d[3]);
+	$('#fechaiu').val(d[4]);
+	$('#fechafu').val(d[5]);
+	$('#estadou').val(d[6]);
 
 }
 
@@ -75,7 +77,22 @@ function editarE(datos){
 	$('#ciudadu').val(d[3]);
 	$('#paginawebu').val(d[4]);
 	$('#telefonou').val(d[5]);
-	$('#descripcionu').val(d[6])
+	$('#descripcionu').val(d[6]);
+}
+
+
+function editarRE(datos){
+
+	d=datos.split('||');
+
+	$('#cedulau').val(d[0]);
+	$('#nombreu').val(d[1]);
+	$('#apellidou').val(d[2]);
+	$('#correou').val(d[3]);
+	$('#telefonou').val(d[4]);
+	$('#cargou').val(d[5]);
+	$('#descripcionu').val(d[6]);
+
 }
 
 

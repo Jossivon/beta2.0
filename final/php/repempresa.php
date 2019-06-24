@@ -40,6 +40,7 @@
               <th scope="col">Apellido</th>
               <th scope="col">Correo</th>
               <th scope="col">Telefono</th>
+              <th scope="col">Acciones</th>
             </tr>
           </thead>
 
@@ -59,7 +60,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
-                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                              <button class=\"btn-warning\" onclick=\"editarRE('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>", $row['cedulaRep'],$row['nombreR'],$row['apellidoR'],$row['correo'],$row['telefono']);
                     }
@@ -73,76 +74,75 @@
 </section>
 </div>
 
-<!-- Modal Igresar -->
+<!---------------------------AGREGAR-------------------------------->
 <div class="modal fade" id="modalAgregarRepEmp"  role="dialog" >
-<div class="modal-dialog">
-<div class="modal-content">
- <form  role="form method="post" enctype="multipart/form-data" action="ingresarRepreEmpre.php" onsubmit="return validar()">
-   <div class="modal-header" style="background: #39CCCC; color:white">
-      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-      </button>
-      <h5 class="modal-title" style="text-align: center;">AGREGAR REPRESENTANTE DE LA EMPRESA</h5>
-    </div>
+  <div class="modal-dialog">
+    <div class="modal-content">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+       <div class="modal-header" style="background: #39CCCC; color:white">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+        </div>
 
-  <div class="modal-body">
-    <div class="box-body">
-        <!------------------- CEDULA DE IDENTIDAD ----------------------------------------->
-      <div class="form-group">
-          <div class="input-group">
-              <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                <input type="text" class="form-control input-lg" name="cedulaRep" id="cedula" placeholder="Cédula" required>
-         </div>
-         <br>
-    <!-------------------------------- NOMBRE  --------------------------------->
-          <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                  <input type="text" class="form-control input-lg" name="nombreR" id="nombre" placeholder="Nombre" required>
-            </div>
-          </div>
-
-          <!-------------------------------- APELLIDO --------------------------------->
-          <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                  <input type="text" class="form-control input-lg" name="apellidoR" id="apellido" placeholder="Apellido" required>
-            </div>
-          </div>
-
-          <!------------------------------------CORREO--------------------------------------------->
-                <div class="form-group">
+      <div class="modal-body">
+        <div class="box-body">
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+             <div class="form-group">
                   <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                        <input type="email" class="form-control input-lg" name="correo" id="correo" placeholder="Correo">
-                  </div>
-                </div>
+                      <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                        <input type="text" class="form-control input-lg" name="cedulaI" id="cedula" placeholder="Cédula" required>
+                 </div>
+              </div>
 
-          <!------------------------------------- TELEFONO --------------------------------------->
-                <div class="form-group">
-                  <div class="input-group">
-                      <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                        <input type="text" class="form-control input-lg" name="telefono" id="telefono" placeholder="Teléfono" >
-                  </div>
-                </div>
-
-          <!----------------------------------------- CARGO ----------------------------------------->
-         <div class="form-group">
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+              <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Representante" id="cargo" value="Representante Empresa">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" placeholder="Nombre del integrante" required>
                 </div>
               </div>
 
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  placeholder="Apellido del integrante" required>
+                </div>
+              </div>
 
-   </div>
-  </div>
+              <!------------------------------------CORREO--------------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                      <input type="email" class="form-control input-lg" name="correo" id="correo" placeholder="Correo">
+                </div>
+              </div>
 
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-    <button type="submit" class="btn btn-primary">Ingresar Representante</button>
-  </div>
+              <!------------------ TELEFONO --------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" placeholder="Telefono" >
+                </div>
+              </div>
 
-  </form>
+              <!------------------ CARGO--------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Coordinador" id="cargo" value="Coordinador Facultad">
+                </div>
+              </div>
+
+         </div>
+       </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
+        <button type="submit" class="btn btn-primary">Agregar usuario</button>
+      </div>
+    </form>
   </div>
  </div>
 </div>
@@ -153,28 +153,28 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">ACTUALIZAR DATOS REPRESENTANTE DE LA EMPRESA</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
       <div class="modal-body">
         <div class="box-body">
-
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
              <div class="form-group">
-                <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
-                </div>
+                  <div class="input-group">
+                        <input type="hidden" class="form-control input-lg" name="cedulaI" id="cedulau">
+                 </div>
               </div>
 
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu">
                 </div>
               </div>
 
@@ -182,36 +182,39 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou">
                 </div>
               </div>
 
               <!------------------------------------CORREO--------------------------------------------->
               <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
-                      </div>
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                      <input type="email" class="form-control input-lg" name="correo" id="correou">
+                </div>
               </div>
 
               <!------------------------------------- TELEFONO --------------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                 </div>
               </div>
 
+              <div class="form-group">
+                <div class="input-group">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Coordinador" id="cargou">
+                </div>
+              </div>
 
-
-          </div>
          </div>
+       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar datos</button>
+        <button type="submit" class="btn btn-primary">Agregar usuario</button>
       </div>
-
     </form>
   </div>
  </div>
