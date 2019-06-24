@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="interfaz/estilos/estilo.css">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    
+
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   </head>
   <body>
@@ -50,7 +50,8 @@
         <div class="reset-password">
           <a href="a">Olvide mi contraseña?</a>
         </div>
-
+        <script src="js\jquery-3.1.1.min.js"></script>
+        <script src="js\main.js"></script>
     </div>
   </body>
 </html>
