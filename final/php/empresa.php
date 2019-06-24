@@ -208,7 +208,7 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="int" class="form-control input-lg" name="codigoE" id="codigoEu"  required>
+                    <input type="int" class="form-control input-lg" name="codigoE" id="codigou"  required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
@@ -239,7 +239,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWebu" >
+                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="paginawebu" >
                       </div>
                     </div>
 

@@ -204,7 +204,7 @@
               <div class="form-group">
                 <div class="input-group">
                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
@@ -212,7 +212,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
                 </div>
               </div>
 
@@ -220,7 +220,7 @@
               <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
               </div>
 
@@ -228,7 +228,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                 </div>
               </div>
 
@@ -236,7 +236,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="carga" id="carga"  required>
+                      <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
                 </div>
               </div>
 

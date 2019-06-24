@@ -27,7 +27,7 @@ $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar 
 
 cerrar($conexion);
 
-header("Location: plantilla.php?op=2");
+header("Location: plantilla.php?op=9");
 
 //modificado L
 ?>

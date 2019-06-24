@@ -24,13 +24,58 @@ function agregardatosagregardatos(cedulaI,codigoFacultad,nombre,apellido,correo,
 
 function agregaform(datos){
           d=datos.split('||');
-
           $('#cedulau').val(d[0]);
           $('#nombreu').val(d[1]);
           $('#apellidou').val(d[2]);
           $('#correou').val(d[3]);
           $('#telefonou').val(d[4]);
           $('#cargau').val(d[5]);
+}
+
+function editarA(datos){
+
+	d=datos.split('||');
+
+	$('#nombreAu').val(d[1]);
+	$('#descripcionu').val(d[2]);
+	$('#fechaIniciou').val(d[3]);
+	$('#fechaFinu').val(d[4]);
+	$('#estadou').val(d[5]);
+
+}
+
+function editarC(datos){
+
+	d=datos.split('||');
+
+	$('#codigou').val(d[0]);
+	$('#descripcionu').val(d[1]);
+	$('#nombreu').val(d[2]);
+	$('#estadou').val(d[3]);
+
+}
+
+function editarp(datos){
+	d=datos.split('||');
+
+	$('#nombreAu').val(d[1]);
+	$('#descripcionu').val(d[2]);
+	$('#fechaIniciou').val(d[3]);
+	$('#fechaFinu').val(d[4]);
+	$('#estadou').val(d[5]);
+}
+
+
+function editarE(datos){
+	d=datos.split('||');
+
+	$('#codigou').val(d[0]);
+	$('#nombreu').val(d[1]);
+	$('#siglasu').val(d[2]);
+	$('#ciudadu').val(d[3]);
+	$('#paginawebu').val(d[4]);
+	$('#telefonou').val(d[5]);
+	$('#descripcionu').val(d[6])
 }
 
 

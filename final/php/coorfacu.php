@@ -182,7 +182,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()"">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -203,7 +203,7 @@
               <div class="form-group">
                 <div class="input-group">
                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
@@ -211,7 +211,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
                 </div>
               </div>
 
@@ -219,7 +219,7 @@
               <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
               </div>
 
@@ -227,7 +227,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                 </div>
               </div>
 
@@ -235,7 +235,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="carga" id="carga" >
+                      <input type="text" class="form-control input-lg" name="carga" id="cargau" >
                 </div>
               </div>
 

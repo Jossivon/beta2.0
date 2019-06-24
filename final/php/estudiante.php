@@ -202,14 +202,14 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedula"  required>
+                    <input type="text" class="form-control input-lg" name="cedulaI" id="cedulau"  required>
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
@@ -217,7 +217,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellidou"  required>
                 </div>
               </div>
 
@@ -225,7 +225,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
+                            <input type="email" class="form-control input-lg" name="correo" id="correou" >
                       </div>
                     </div>
 
@@ -233,7 +233,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
+                            <input type="text" class="form-control input-lg" name="telefono" id="telefonou" >
                       </div>
                     </div>
 
@@ -241,7 +241,7 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="carga"  required>
+                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="cargau"  required>
                       </div>
                     </div>
          </div>
@@ -256,10 +256,6 @@
   </div>
  </div>
 </div>
-
-
-
 <?php
   }
-
 ?>

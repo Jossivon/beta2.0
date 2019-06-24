@@ -11,7 +11,7 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        INTEGRANTES
+        COMPONENTES
         <small>COMPONENTES DEL PROYECTO</small>
       </h1>
       <ol class="breadcrumb">
@@ -59,7 +59,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                           ."<td><div class=\"btn-group\">
-                              <button class=\"btn-warning\" onclick=\"agregaform('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                              <button class=\"btn-warning\" onclick=\"editarC('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>",$row['descripcion'],$row['nombre'],$row['estado']);
                     }
@@ -76,7 +76,7 @@
 <div class="modal fade" id="modalAgregarCompo"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="post" enctype="multipart/form-data" action=¨ingresarComp.php¨>
+     <form  role="form method="POST" enctype="multipart/form-data" action="ingresarComp.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -92,14 +92,8 @@
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" id="codigoC" placeholder="Código Componente" required>
              </div>
-             <br>--->
-               <!------------------CODIGO PROYECTO--------------------------------------
-          <div class="form-group">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoPro" placeholder="Código Proyecto" required>
-             </div>
-             <br>--->
+             
+          <br>
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -115,6 +109,7 @@
                       <input type="text" class="form-control input-lg" name="nombre" id ="nombre" placeholder="Nombre" required>
                 </div>
               </div>
+
               <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -144,7 +139,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarComp.php">
+     <form  role="form method="POST" enctype="multipart/form-data" action="ingresarComp.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -153,61 +148,52 @@
         </div>
 
       <div class="modal-body">
-
-        <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
-            <!------------------- CODIGO COMPONENTE------------------------------------
+            <!------------------- CODIGO COMPONENTE ------------------------------------------->
           <div class="form-group">
               <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoC" id="codigoCu"  required>
+                    <input type="hidden" class="form-control input-lg" name="codigoC" id="codigou" placeholder="Código Componente">
              </div>
-             <br>
-        <!------------------------------CODIGO PROYECTO-----------------------------
+             
+          <br>
+        <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="codigoPro" id="codigoProu" required>
-                </div>
-              </div>----->---->
-
-              <!----------------DESCRIPCION----------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
+                    <div class="input-group-addon"><i class="fa fa-archive"></i></div>
+                      <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu" placeholder="Descripción" required>
                 </div>
               </div>
 
-              
+              <!--------------------------------NOMBRE --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>
+                </div>
+              </div>
 
-              <!-------------------------------------NOMBRE --------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="nombre" id="nombreu" >
-                      </div>
-                    </div>
+              <!-------------------------------ESTADO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
+                      <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>
+                </div>
+              </div>
 
-                <!-------------------------------ESTADO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="text" class="form-control input-lg" name="estado" id="estadou"  required>
-                      </div>
-                    </div>
          </div>
        </div>
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button type="submit" class="btn btn-primary">Agregar Componente</button>
       </div>
+
     </form>
   </div>
  </div>
 </div>
+
 
 
 

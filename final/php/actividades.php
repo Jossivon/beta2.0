@@ -28,7 +28,7 @@
             <?php
                 include 'conexion.php';
                 $conexion=conectar();
-                $sqlMostrar="select A.nombreA, A.fechaInicio, A.fechaFin, A.estado, A.descripcion
+                $sqlMostrar="select A.codigoA, A.codigoC, A.nombreA, A.fechaInicio, A.fechaFin, A.estado, A.descripcion
                               from Proyecto P
                               INNER JOIN Componente C
                               On P.codigoPro = C.codigoPro
@@ -53,20 +53,27 @@
                   <th scope="col">&nbsp;Descripción&nbsp;</th>                  
                   <th scope="col">&nbsp;Fecha Inicio&nbsp;</th>
                   <th scope="col">&nbsp;Fecha Fin&nbsp;</th>
-                  
+                  <th scope="col">&nbsp;Estado&nbsp;</th>
+                  <th scope="col">&nbsp;Acciones&nbsp;</th>
                 </tr>
               </thead>
 
               <tbody>
                   <?php
 
-                  while ($row=$result->fetch_assoc()){
+                  while ($row=$result->fetch_array()){
+                    $variables=$row['codigoA']."||".$row['codigoC']."||".$row['descripcion']."||".$row['nombreA']."||".$row['fechaInicio']."||".$row['fechaFin']."||".$row['estado'];
                     printf("<tr>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td>&nbsp;%s&nbsp;</td>"
-                            ."<td>&nbsp;%s&nbsp;</td></tr>"
-                            ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin']); 
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td>&nbsp;%s&nbsp;</td>"
+                            ."<td><div class=\"btn-group\">
+                              <button class=\"btn-warning\" onclick=\"\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                              </div></td></tr>"
+                            ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin'],$row['estado']); 
                     }
                   ?>
               </tbody>
@@ -188,97 +195,72 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarActivi.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()"">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR ACTIVIDAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO ACTIVIDAD--------------------------------------- -->
-          <div class="form-group">
-              <input type="text" hidden="" id="codigoA">
-              <div class="input-group">
-                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="codigoactivi" required>
-             </div>
-             <br>
-       
-              <!-------------------------------- NOMBRE ACTIVIDAD--------------------------------->
-              <div class="form-group">
+
+             <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreA" id ="nombreAu"required>
-                </div>
-              </div>
-               <!-------------------------------- NOMBRE ACTIVIDAD--------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" id ="descripcionu"required>
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
                 </div>
               </div>
 
-              <!------------------------------------FECHA INICIO----------------------------------->
-                    <div class="form-group">
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                   <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombre" required>
+                </div>
+              </div>
+
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="apellido" id="apellido"  required>
+                </div>
+              </div>
+
+              <!------------------------------------CORREO--------------------------------------------->
+              <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechaInicio" id ="fechaIniciou">
+                            <input type="email" class="form-control input-lg" name="correo" id="correo" >
                       </div>
-                    </div>
-
-              <!------------------------------------- FECHA FIN --------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                            <input type="text" class="form-control input-lg" name="fechaFin" id="fechaFinu">
-                      </div>
-                    </div>
-
-                   <!-------------------------ESTADO------------------------------------------>
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="estado" class="form-control input-lg">
-                        <option value="">Inicializado</option>
-                        <option value="">En Ejecucion</option>
-                        <option value="">Finalizado</option>
-                  
-                      </select>
-                </div>
               </div>
-              <!----------------------------------------- CARGO ----------------------------------------
+
+              <!------------------------------------- TELEFONO --------------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
-                      </select>
+                    <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                      <input type="text" class="form-control input-lg" name="telefono" id="telefono" >
                 </div>
               </div>
 
--->
-             <div class="form-group">
-                <div class="panle">Subir Archivo   </div>
-                <input type="file" id="foto" name="nuevo archivo">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                      <input type="text" class="form-control input-lg" name="carga" id="carga" >
+                </div>
+              </div>
 
+
+          </div>
          </div>
-       </div>
-      </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
-        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+        <button type="submit" class="btn btn-primary">Guardar datos</button>
       </div>
+
     </form>
   </div>
  </div>
