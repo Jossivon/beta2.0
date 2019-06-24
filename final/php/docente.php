@@ -50,7 +50,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Integrantes where codigoPro = $id and cargo='Coordinador Facultad'";
+                       $sqlMostrar="select * from Integrantes where codigoPro = $id and cargo='Docente'";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -142,9 +142,9 @@
 
 
                       <!------------------------------- CARGO-------------------------------------->
-               <div class="form-group">
+              <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Docente" id="cargo" value="Docente">
+                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Docente" id="cargou" value="Docente">
                 </div>
               </div>
 
@@ -188,7 +188,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">ACTUALIZAR DATOS DE DOCENTE</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
         </div>
 
       <div class="modal-body">

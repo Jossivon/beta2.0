@@ -94,57 +94,57 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CODIGO----------------------------------------->
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="int" class="form-control input-lg" name="codigoE" id="codigo"placeholder="Código Empresa" required>
              </div>
              <br>
-        <!-------------------------------- NOMBRE--------------------------------->
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-building"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="nombre" id="nombre"placeholder="Nombre de la Empresa" required>
                 </div>
               </div>
 
-              <!--------------------------------SIGLAS --------------------------------->
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-italic"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="siglas" id="siglas" placeholder="Siglas" required>
                 </div>
               </div>
 
-              <!-----------------------------CIUDAD-------------------------------------------->
+              <!------------------------------------CORREO--------------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-city"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="text" class="form-control input-lg" name="ciudad" id="ciudad" placeholder="Ciudad">
                       </div>
                     </div>
 
-              <!----------------------------PAGINA WEB-------------------------------------->
+              <!------------------------------------- TELEFONO --------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-chrome"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                             <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWeb"placeholder="Página Web" >
                       </div>
                     </div>
 
-                <!---------------------------TELEFONO----------------------------------->
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="int" class="form-control input-lg" name="telefono" id="telefono" placeholder="Teléfono" required>
                       </div>
                     </div>
 
-                    <!-----------------------------DESCRIPCION----------------------------------->
+                    <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-audio-description"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcion" placeholder="Descripción" required>
                       </div>
                     </div>
@@ -192,7 +192,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarEmpre.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarEmpre.php>
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -201,37 +201,37 @@
         </div>
 
       <div class="modal-body">
+
+        <input type="text" hidden="" id="codigoE">
         <div class="box-body">
-       
-        <!-------------------------------- NOMBRE-------------------------------->
+            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+          <div class="form-group">
+              <div class="input-group">
+                  <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
+                    <input type="int" class="form-control input-lg" name="codigoE" id="codigoEu"  required>
+             </div>
+             <br>
+        <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-building"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombreE" id="nombre" required>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="nombre" id="nombreu" required>
                 </div>
               </div>
 
-              <!-------------------------------- SIGLAS--------------------------------->
+              <!-------------------------------- APELLIDO DEL USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-italic"></i></div>
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="siglas" id="siglasu"  required>
                 </div>
               </div>
 
-              <!--------------------------------CIUDAD--------------------------------------------->
+              <!------------------------------------CORREO--------------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-city"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="text" class="form-control input-lg" name="ciudad" id="ciudadu" >
-                      </div>
-                    </div>
-
-              <!------------------------------------- PAGINA WEB--------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-chrome"></i></div>
-                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWeb" >
                       </div>
                     </div>
 
@@ -239,16 +239,25 @@
                     <div class="form-group">
                       <div class="input-group">
                           <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                            <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWebu" >
+                      </div>
+                    </div>
+
+              <!------------------------------------- TELEFONO --------------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="int" class="form-control input-lg" name="telefono" id="telefonou"  required>
                       </div>
                     </div>
-                <!----------------------------------DESCRIPCION------------------------------------->
+                <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-audio-description"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
                       </div>
                     </div>
+         </div>
        </div>
       </div>
 
