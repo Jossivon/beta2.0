@@ -166,7 +166,7 @@ if (!expRegnombre.exec(nombre))
 }
 
 //********************** VALIDAR (EDITAR) COMPONENTES ******************************
-function validarComponente()
+function validarEditarComponente()
 {
 var codigo, descripcion, nombre, estado;
 
