@@ -12,7 +12,7 @@
     <section class="content-header">
       <h1>
         COORDINADOR DE FACULTAD
-        <small>TABLERO DE COORDINADOR DE FACULTAD MI CAMBIO</small>
+        <small>TABLERO DE COORDINADOR DE FACULTAD </small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="inicio"><i class="fa fa-dashboard"></i> INICIO</a></li>
@@ -187,18 +187,12 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">ACTUALIZAR COORDINADOR DE FACULTAD</h5>
         </div>
 
       <div class="modal-body">
         <div class="box-body">
 
-             <div class="form-group">
-                <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau" required>
-                </div>
-              </div>
-                
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
