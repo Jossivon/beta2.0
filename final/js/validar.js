@@ -71,7 +71,8 @@ function validarEditarUsuarios()
  var i;
  var cedula;
  var acumulado;
- var cedula=document.getElementById('cedula').value;
+ //var cedula=document.getElementById('cedula').value;
+ var cedula=document.getElementById('cedulau').value;
  var instancia;
  acumulado=0;
  for (i=1;i<=9;i++)
