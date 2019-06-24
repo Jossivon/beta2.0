@@ -87,19 +87,19 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR ESTUDIANTE</h5>
         </div>
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CEDULA DE INDENTIDAD ---------------------------------------->
+
              <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                         <input type="text" class="form-control input-lg" name="cedulaI" id="cedula" placeholder="Cédula" required>
                  </div>
               </div>
-
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -190,20 +190,20 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR ESTUDIANTE</h5>
+          <h5 class="modal-title" style="text-align: center;">ACTUALIZAR DATOS DE ESTUDIANTE</h5>
         </div>
 
        <div class="modal-body">
 
         <input type="text" hidden="" id="cedulaI">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CEDULA DE INDENTIDAD -----------------------------------
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                     <input type="text" class="form-control input-lg" name="cedulaI" id="cedulaIu"  required>
              </div>
-             <br>
+             <br>------>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
                 <div class="input-group">
@@ -236,14 +236,14 @@
                       </div>
                     </div>
 
-                <!---------------------------------- CARGA HORARIO ------------------------------------->
-                    <div class="form-group">
-                      <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                            <input type="int" class="form-control input-lg" name="cargaHoraria" id="cargaHorariau"  required>
-                      </div>
-                    </div>
-         </div>
+                 <!---------------------------------- CARGA HORARIO ------------------------------------->
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                      <input type="text" class="form-control input-lg" name="carga" id="cargau"  required>
+                </div>
+              </div>
+        
        </div>
       </div>
 
