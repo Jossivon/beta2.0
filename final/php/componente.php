@@ -115,7 +115,12 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado" required>
+                    <select name="estado" id="estado" class="form-control input-lg">
+                      <option value="">Inicializado</option>
+                      <option value="">En Ejecucion</option>
+                      <option value="">Finalizado</option>
+                    </select>
+
                 </div>
               </div>
 
@@ -169,7 +174,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>
+                <!--      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>-->
                 </div>
               </div>
 
@@ -177,7 +182,13 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>
+                    <select name="estado" id="estadou" class="form-control input-lg">
+                      <option value="">Inicializado</option>
+                      <option value="">En Ejecucion</option>
+                      <option value="">Finalizado</option>
+                    </select>
+
+                  <!--    <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>-->
                 </div>
               </div>
 
