@@ -130,3 +130,71 @@ if (!expRegCarga.exec(carga) || (carga>0 || carga>12))
      }
 }
 }
+
+//********************** VALIDAR COMPONENTES ******************************
+function validarComponente()
+{
+var codigo, descripcion, nombre, estado;
+
+//validarCodigo
+var expRegcodigo=/^[0-9]*$/;
+var codigo=document.getElementById('codigoC').value;
+if(codigo.length!=""){
+if (!expRegcodigo.exec(codigo) || codigo<0)
+     {
+        alert("El codigo ingresado solo admite números");
+        return false;
+     }
+}
+
+//validarDescripcion
+var expRegdescripcion=/^[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?: [0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
+var descripcion=document.getElementById('descripcion').value;
+if (!expRegdescripcion.exec(descripcion))
+     {
+        alert("La descripcion no es correcta");
+        return false;
+     }
+//validarnombre
+var expRegnombre=/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?: [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
+var nombre=document.getElementById('nombre').value;
+if (!expRegnombre.exec(nombre))
+    {
+       alert("El nombre sólo contiene letras y un espacio");
+       return false;
+    }
+}
+
+//********************** VALIDAR (EDITAR) COMPONENTES ******************************
+function validarComponente()
+{
+var codigo, descripcion, nombre, estado;
+
+//validarCodigo
+var expRegcodigo=/^[0-9]*$/;
+var codigo=document.getElementById('codigou').value;
+if(codigo.length!=""){
+if (!expRegcodigo.exec(codigo) || codigo<0)
+     {
+        alert("El codigo ingresado solo admite números");
+        return false;
+     }
+}
+
+//validarDescripcion
+var expRegdescripcion=/^[0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?: [0-9a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
+var descripcion=document.getElementById('descripcionu').value;
+if (!expRegdescripcion.exec(descripcion))
+     {
+        alert("La descripcion no es correcta");
+        return false;
+     }
+//validarnombre
+var expRegnombre=/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+(?: [a-zA-ZáéíóúÁÉÍÓÚñÑ]+)*$/;
+var nombre=document.getElementById('nombreu').value;
+if (!expRegnombre.exec(nombre))
+    {
+       alert("El nombre sólo contiene letras y un espacio");
+       return false;
+    }
+}
