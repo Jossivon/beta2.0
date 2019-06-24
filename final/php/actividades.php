@@ -1,5 +1,6 @@
-<?php 
-  session_start(); 
+<script type="text/javascript" src="../js/validaractividad.js"></script>
+<?php
+  session_start();
 
   if(isset($_SESSION["inicio"])){
 
@@ -36,10 +37,10 @@
                               On A.CodigoC = C.CodigoC
                               where P.codigoPro = $id";
                 $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
-                
+
             ?>
           <div class="box-header with-border">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu">
                 Agregar Actividad
               </button>
           </div>
@@ -50,7 +51,7 @@
               <thead class="thead-dark">
                 <tr>
                   <th scope="col">&nbsp;Nombre Actividad&nbsp;</th>
-                  <th scope="col">&nbsp;Descripción&nbsp;</th>                  
+                  <th scope="col">&nbsp;Descripción&nbsp;</th>
                   <th scope="col">&nbsp;Fecha Inicio&nbsp;</th>
                   <th scope="col">&nbsp;Fecha Fin&nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
@@ -73,12 +74,12 @@
                               <button class=\"btn-warning\" onclick=\"editarA('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\" ></i></button>
                              <button class=\"btn-danger\" onclick=\"preguntarA('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>"
-                            ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin'],$row['estado']); 
+                            ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin'],$row['estado']);
                     }
                   ?>
               </tbody>
             </table>
-          </div> 
+          </div>
       </div>
    </section>
 </div>
@@ -140,7 +141,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                      <input type="date" class="form-control input-lg" name="fechai" id="fecha" placeholder="Fecha Inicio">
+                      <input type="date" class="form-control input-lg" name="fecha" id="fecha" placeholder="Fecha Inicio" min=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                 </div>
               </div>
 
@@ -148,7 +149,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="date" class="form-control input-lg" name="fechaf" id="fechaf" placeholder="Fecha Final" >
+                      <input type="date" class="form-control input-lg" name="fechaf" id="fechaf" placeholder="Fecha Final" min=<?php $fecha = date('Y-m-j');$nuevafecha = strtotime ('+1 day' ,strtotime ($fecha)); $nuevafecha = date ('Y-m-j', $nuevafecha);echo $nuevafecha; ?> >
                 </div>
               </div>
 
@@ -214,7 +215,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                      <input type="date" class="form-control input-lg" name="fechai" id="fechaiu">
+                      <input type="date" class="form-control input-lg" name="fechai" id="fechaiu" min=<?php $hoy=date("Y-m-d"); echo $hoy;?>>
                 </div>
               </div>
 
@@ -222,7 +223,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="date" class="form-control input-lg" name="fechaf" id="fechafu">
+                      <input type="date" class="form-control input-lg" name="fechaf" id="fechafu" min=<?php $fecha = date('Y-m-j');$nuevafecha = strtotime ('+1 day' ,strtotime ($fecha)); $nuevafecha = date ('Y-m-j', $nuevafecha);echo $nuevafecha; ?>>
                 </div>
               </div>
 
