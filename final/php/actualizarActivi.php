@@ -4,11 +4,11 @@
 // el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
 $conexion = conectar();
-$codigoA = $_POST['codigoA'];
+$codigoA = $_POST['codigo'];
 $descripcion = $_POST['descripcion'];
 $nombreA = $_POST['nombre'];
-$fechaInicio = $_POST['fechaInicio'];
-$fechaFin = $_POST['fechaFin'];
+$fechaInicio = $_POST['fechai'];
+$fechaFin = $_POST['fechaf'];
 $estado = $_POST['estado'];
 //..............................................
 
@@ -17,15 +17,20 @@ $estado = $_POST['estado'];
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "UPDATE Actividad SET  descripcion='$descripcion', nombreA='$nombre', fechaInicio='$fechaInicio', fechaFin='$fechaFin', estado='$estado' where codigoA='$codigoA'";
+$sqlInsertar = "UPDATE Actividad 
+				SET descripcion='$descripcion', 
+				nombreA='$nombreA', 
+				fechaInicio='$fechaInicio', 
+				fechaFin='$fechaFin, 
+				estado='$estado' where codigoA=$codigoA";
 
 
-$resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
+$resultado = mysqli_query($conexion,$sqlInsertar) or die("Problemas al guardar los datos...  ");
 
 echo '<script language="javascript">alert(ESTADO DE LA CONSULTA"' . $resultado . '");</script>';
 
 cerrar($conexion);
 
-header("Location: plantilla.php?op=2");
+header("Location: plantilla.php?op=8");
 
 

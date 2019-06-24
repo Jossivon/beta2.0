@@ -58,7 +58,7 @@
 
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"editarp('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
-                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntarP('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div>
                               </td></tr>",$row['cedulaC'],$row['nombrePrograma'],$row['nombreProyecto'],$row['duracion'],$row['tipo'],$row['fechaInicio'],$row['finalPlanificado'],$row['finalReal'],$row['localizacion'],$row['objetivoGeneral'],$row['beneficiariosD'],$row['beneficiariosI'],$row['estado']);
 
@@ -219,7 +219,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarProy.php"  onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -292,6 +292,6 @@
 </div>
 
 <?php
-  }
+  }else {include("../iniciarsesion.php");}
 
 ?>

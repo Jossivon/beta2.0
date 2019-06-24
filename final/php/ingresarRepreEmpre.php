@@ -3,11 +3,9 @@
 //uso el include para insertar codigo de otro archivo php es como si llamara o todo ese fragmento de codigo del otro archivo
 // el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
-$cedula = $_POST['cedulaRep'];
-//$codigoPro = $_POST['cedula'];
-//$codigoE = $_POST['cedula'];
-$nombre = $_POST['nombreR'];
-$apellido = $_POST['apellidoR'];
+$cedula = $_POST['cedulaI'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $cargo = $_POST['cargo'];

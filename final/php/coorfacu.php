@@ -81,7 +81,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -182,7 +182,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php" >
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -195,7 +195,7 @@
 
              <div class="form-group">
                 <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedula" required>
+                      <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau">
                 </div>
               </div>
 
@@ -254,5 +254,5 @@
 </div>
 
 <?php
-  }
+  }else {include("../iniciarsesion.php");}
 ?>

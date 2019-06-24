@@ -10,7 +10,7 @@ $nombreProyecto= $_POST['nombreProyecto'];
 $duracion = $_POST['duracion'];
 $tipo = $_POST['tipo'];
 $fechaInicio = $_POST['fechaInicio'];
-$finalPlanificado = $_POST['finalPlanificada'];
+$finalPlanificado = $_POST['finalPlanificado'];
 $finalReal = $_POST['finalReal'];
 $localizacion = $_POST['localizacion'];
 $objetivoGeneral = $_POST['objetivoGeneral'];
@@ -18,18 +18,12 @@ $beneficiariosD = $_POST['beneficiariosD'];
 $beneficiariosI = $_POST['beneficiariosI'];
 $estado = $_POST['estado'];
 
-session_start();
-
-  if(isset($_SESSION["inicio"])){
-    $id=$_SESSION['idp'];
-$conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO Proyecto (codigoPro,cedulaC, nombrePrograma, nombreProyecto, duracion, tipo, fechaInicio, finalPlanificado, finalReal, localizacion, objetivoGeneral, beneficiariosD, beneficiariosI,$estado) VALUES ('$id','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechainicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI','$estado')" or die('No se realizo la consulta');
+$sqlInsertar = "INSERT INTO Proyecto (codigoPro,cedulaC, nombrePrograma, nombreProyecto, duracion, tipo, fechaInicio, finalPlanificado, finalReal, localizacion, objetivoGeneral, beneficiariosD, beneficiariosI, estado) VALUES ('$codigoPro','$cedulaC','$nombrePrograma','$nombreProyecto','$duracion','$tipo','$fechaInicio','$finalPlanificado','$finalReal ','$localizacion', '$objetivoGeneral','$beneficiariosD','$beneficiariosI','$estado')" or die('No se realizo la consulta');
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
 cerrar($conexion);
-
 header("Location: plantilla.php?op=2");

@@ -2,15 +2,15 @@
 
 include 'conexion.php';
 $conexion = conectar();
-$cedula = $_POST['cedulaRep'];
-$nombre = $_POST['nombreR'];
-$apellido = $_POST['apellidoR'];
+$cedula = $_POST['cedulaI'];
+$nombre = $_POST['nombre'];
+$apellido = $_POST['apellido'];
 $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $cargo = $_POST['cargo'];
 
 
-$sqlInsertar = "UPDATE RepresentanteEmpresa SET nombre='$nombre', apellido='$apellido', correo='$correo', telefono='$telefono' where cedulaRep='$cedulaRep'";
+$sqlInsertar = "UPDATE RepresentanteEmpresa SET nombreR='$nombre', apellidoR='$apellido', correo='$correo', telefono='$telefono' where cedulaRep='$cedula'";
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 

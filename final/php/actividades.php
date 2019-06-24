@@ -71,7 +71,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"editarA('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\" ></i></button>
-                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntarA('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>"
                             ,$row['nombreA'],$row['descripcion'],$row['fechaInicio'],$row['fechaFin'],$row['estado']); 
                     }
@@ -92,23 +92,33 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarActivi.php" >
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR ACTIVIDADES</h5>
         </div>
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CODIGO A----------------------------------------->
              <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                         <input type="text" class="form-control input-lg" name="codigo" id="codigo" placeholder="Codigo" required>
                  </div>
               </div>
+
+              <!--------------- CODIGO C----------------------------------------->
+
+              <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                      <input type="text" class="form-control input-lg" name="codigoc" id="codigoc" placeholder="Nombre de la actividad" required>
+                </div>
+              </div>
+
 
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
@@ -130,7 +140,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                      <input type="date" class="form-control input-lg" name="fecha" id="fecha" placeholder="Fecha Inicio">
+                      <input type="date" class="form-control input-lg" name="fechai" id="fecha" placeholder="Fecha Inicio">
                 </div>
               </div>
 
@@ -167,7 +177,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarActivi.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -237,6 +247,6 @@
 
 
 <?php
-  }
+  }else {include("../iniciarsesion.php");}
 
 ?>

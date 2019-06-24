@@ -61,7 +61,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"editarRE('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
-                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntarRE('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>", $row['cedulaRep'],$row['nombreR'],$row['apellidoR'],$row['correo'],$row['telefono']);
                     }
                   ?>
@@ -78,12 +78,12 @@
 <div class="modal fade" id="modalAgregarRepEmp"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarRepreEmpre.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-          <h5 class="modal-title" style="text-align: center;">AGREGAR COORDINADOR DE FACULTAD</h5>
+          <h5 class="modal-title" style="text-align: center;">AGREGAR REPRESENTANTE DE LA EMPRESA</h5>
         </div>
 
       <div class="modal-body">
@@ -153,7 +153,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarCFac.php" onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -221,5 +221,5 @@
 </div>
 
 <?php
-  }
+  }else {include("../iniciarsesion.php");}
 ?>

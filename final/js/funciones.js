@@ -105,6 +105,48 @@ function preguntar(id){
 
 }
 
+function preguntarA(id){
+	
+
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarA(id)},
+		function(){alertify.error('Cancelar')});
+
+}
+
+function preguntarC(id){
+	
+
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarC(id)},
+		function(){alertify.error('Cancelar')});
+
+}
+
+function preguntarE(id){
+	
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarE(id)},
+		function(){alertify.error('Cancelar')});
+
+}
+
+function preguntarP(id){
+	
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarP(id)},
+		function(){alertify.error('Cancelar')});
+
+}
+
+function preguntarRE(id){
+	
+	alertify.confirm('Eliminar datos', 'Esta seguro', 
+		function(){eliminarRE(id)},
+		function(){alertify.error('Cancelar')});
+
+}
+
 
 function eliminarU(id){
 
@@ -113,6 +155,62 @@ function eliminarU(id){
 	 $.ajax({
 	 	type: "POST",
 	 	url:"eliminar.php",
+	 	data:cadena,
+	 });
+}
+
+function eliminarA(id){
+
+	cadena = "id="+ id;
+
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminarActivi.php",
+	 	data:cadena,
+	 });
+}
+
+function eliminarE(id){
+
+	cadena = "id="+ id;
+
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminarEmpre.php",
+	 	data:cadena,
+	 });
+}
+
+
+function eliminarC(id){
+
+	cadena = "id="+ id;
+
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminarComp.php",
+	 	data:cadena,
+	 });
+}
+
+function eliminarP(id){
+
+	cadena = "id="+ id;
+
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminarProy.php",
+	 	data:cadena,
+	 });
+}
+
+function eliminarRE(id){
+
+	cadena = "id="+ id;
+
+	 $.ajax({
+	 	type: "POST",
+	 	url:"eliminarRepreEmpre.php",
 	 	data:cadena,
 	 });
 }

@@ -4,10 +4,8 @@
 // el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
 $codigoC = $_POST['codigoC'];
-$codigoPro = $_POST['codigoPro'];
 $descripcion = $_POST['descripcion'];
 $nombre = $_POST['nombre'];
-//$estado = $_POST['fechafin'];
 $estado = $_POST['estado'];
 
 //el metodo vardump solo era para ver el tipo y valor de una variable, si quiere puede borrarla la puede aplicar en cualquier parte
@@ -28,5 +26,6 @@ $sqlInsertar = "INSERT INTO Componente (codigoC, codigoPro, descripcion, nombre,
 
 //la variable  resultado realiza la consulta con mysqli_query pasandole como entradas la variable conexion y la consulta, si marcha bien todo se ejecuta la consulta caso contrario pasa al error 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
+
 cerrar($conexion);
-header("Location: plantilla.php?op=2");
+header("Location: plantilla.php?op=7");

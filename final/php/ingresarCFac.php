@@ -22,7 +22,7 @@ $conexion = conectar();
 $sqlInsertar = "INSERT INTO Integrantes (cedulaI, codigoPro, codigoFacultad, nombre, apellido, correo, telefono, cargaHoraria, cargo) VALUES ('$cedula', $id,$codigoFacultad ,'$nombre', '$apellido', '$correo', '$telefono', $carga,'$cargo')" or die('No se realizo la consulta');
 
 
-$resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...");
+$resultado = mysqli_query($conexion,$sqlInsertar) or die("Problemas al guardar los datos...");
 
 cerrar($conexion);
 

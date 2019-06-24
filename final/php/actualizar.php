@@ -10,7 +10,7 @@ $correo = $_POST['correo'];
 $telefono = $_POST['telefono'];
 $cargaHoraria = $_POST['carga'];
 
-$sqlInsertar = "UPDATE Integrantes SET nombre='$nombre', apellido='$apellido', correo='$correo', telefono='$telefono', cargaHoraria=$cargaHoraria where cedulaI='$cedulaI'";
+$sqlInsertar = "UPDATE Integrantes SET nombre='$nombre', apellido='$apellido', correo='$correo', telefono='$telefono', cargaHoraria=$cargaHoraria where cedulaI=$cedulaI";
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 

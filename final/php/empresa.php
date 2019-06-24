@@ -66,7 +66,7 @@
                             ."<td>&nbsp;%s&nbsp;</td>"
                             ."<td><div class=\"btn-group\">
                               <button class=\"btn-warning\" onclick=\"editarE('$variables')\" data-toggle=\"modal\" data-target=\"#modalEditar\"> <i class=\"fa fa-pencil\"></i></button>
-                             <button class=\"btn-danger\" onclick=\"preguntar('$row[0]')\"><i class=\"fa fa-times\"></i></button>
+                             <button class=\"btn-danger\" onclick=\"preguntarE('$row[0]')\"><i class=\"fa fa-times\"></i></button>
                               </div></td></tr>", $row['codigoE'],$row['nombre'],$row['siglas'],$row['ciudad'],$row['PaginaWeb'],$row['telefono'],$row['descripcion']);
                     }
                   ?>
@@ -94,7 +94,7 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- CODIGO----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
@@ -148,29 +148,6 @@
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcion" placeholder="Descripción" required>
                       </div>
                     </div>
-
-
-
-              <!----------------------------------------- CARGO ----------------------------------------
-              <div class="form-group">
-                <div class="input-group">
-                    <div class="input-group-addon"><i class="fa fa-users"></i></div>
-                      <select name="cargo" class="form-control input-lg">
-                        <option value="">Coordinador de Facultad</option>
-                        <option value="">Coordinador de Carrera</option>
-                        <option value="">Docente</option>
-                        <option value="">Estudiante</option>
-                      </select>
-                </div>
-              </div>
-
-
-             <div class="form-group">
-                <div class="panle">Subir foto   </div>
-                <input type="file" id="foto" name="nuevafoto">
-                <p class="help-block"> Peso máximo 200 MB</p>
-                <img src="vistas/img/usuarios/perfil.png" alt="">
-             </div>-->
          </div>
        </div>
       </div>
@@ -192,7 +169,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizar.php"  onsubmit="return validar()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarEmpre.php"  onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -206,7 +183,7 @@
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="int" class="form-control input-lg" name="codigoE" id="codigou"  required>
+                    <input type="hidden" class="form-control input-lg" name="codigoE" id="codigou" >
              </div>
           </div>
              <br>
@@ -272,5 +249,5 @@
 
 
 <?php
-  }
+  }else {include("../iniciarsesion.php");}
 ?>

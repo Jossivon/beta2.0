@@ -4,7 +4,7 @@
 // el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
 include 'conexion.php';
 $conexion = conectar();
-$codigoC = $_POST['codigo'];
+$codigoC = $_POST['codigoC'];
 $descripcion = $_POST['descripcion'];
 $nombre = $_POST['nombre'];
 $estado = $_POST['estado'];
@@ -16,7 +16,7 @@ $estado = $_POST['estado'];
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "UPDATE Componente SET descripcion='$descripcionu', nombre='$nombre', estado='$estado' where codigoC='$codigoC'";
+$sqlInsertar = "UPDATE Componente SET descripcion='$descripcion', nombre='$nombre', estado='$estado' where codigoC='$codigoC'";
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
 
