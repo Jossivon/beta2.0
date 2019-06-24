@@ -1,5 +1,6 @@
-<?php 
-  session_start(); 
+<script type="text/javascript" src="../js/validarproyecto.js"></script>
+<?php
+  session_start();
 
   if(isset($_SESSION["inicio"])){
 
@@ -24,9 +25,9 @@
     <section class="content">
       <!-- Default box -->
       <div class="box">
-       
+
         <div class="box-header with-border">
-            <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+            <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu">
               Agregar Proyectos
             </button>
         </div>
@@ -65,7 +66,7 @@
                     }
                   ?>
             </tbody>
-        </div> 
+        </div>
       </div>
     </section>
  </div>
@@ -75,7 +76,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarProy.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarProy.php" onsubmit="return validarproyecto()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -92,7 +93,7 @@
                         <input type="text" class="form-control input-lg" name="codigoPro" id="codigoPro" placeholder="Código del Proyecto" required>
                   </div>
               </div>
-            
+
 
 
             <!------------------- CEDULA DE COORDINADOR ----------------------------------------->
@@ -102,7 +103,7 @@
                         <input type="text" class="form-control input-lg" name="cedulaC" id="cedulaC" placeholder="Cédula Coordinador" required>
                   </div>
               </div>
-            
+
 
         <!-------------------------------- NOMBRE PROGRAMA --------------------------------->
               <div class="form-group">
@@ -124,7 +125,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-at"></i></div>
-                      <input type="text" class="form-control input-lg" name="duracion"id="duracion" placeholder="Duración" required>
+                      <input type="text" class="form-control input-lg" name="duracion" id="duracion" placeholder="Duración" required>
                 </div>
               </div>
 <!-----------------------------------TIPO-------------------------------------------->
@@ -138,22 +139,22 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-phone"></i></div>
-                      <input type="text" class="form-control input-lg" name="fechaInicio" id="fechaInicio" placeholder="Fecha Inicio" required >
+                      <input type="date" class="form-control input-lg" name="fechaInicio" id="fechaInicio" placeholder="Fecha Inicio" min=<?php $hoy=date("Y-m-d"); echo $hoy;?> required >
                 </div>
               </div>
-    
+
                 <!---------------------------------- FINAL PLANIFICADA ------------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="finalPlanificado" id="finalPlanificado" placeholder="Final Planificado" required>
+                      <input type="date" class="form-control input-lg" name="finalPlanificado" id="finalPlanificado" placeholder="Final Planificado" min=<?php $fecha = date('Y-m-j');$nuevafecha = strtotime ('+1 day' ,strtotime ($fecha)); $nuevafecha = date ('Y-m-j', $nuevafecha);echo $nuevafecha; ?> required >
                 </div>
               </div>
                 <!------------------- FINAL REAL ------------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
-                      <input type="text" class="form-control input-lg" name="finalReal " id="finalReal" placeholder="Final Real"  required>
+                      <input type="date" class="form-control input-lg" name="finalReal " id="finalReal" placeholder="Final Real" min=<?php $fecha = date('Y-m-j');$nuevafecha = strtotime ('+1 day' ,strtotime ($fecha)); $nuevafecha = date ('Y-m-j', $nuevafecha);echo $nuevafecha; ?> required>
                 </div>
               </div>
                 <!--------------------- LOCALIZACION------------------------------------->
@@ -163,7 +164,7 @@
                       <input type="text" class="form-control input-lg" name="localizacion" id="localizacion" placeholder="Localización" required>
                 </div>
               </div>
-  
+
 
                 <!-------------- OBJETIVO GENERAL------------------------------------->
               <div class="form-group">

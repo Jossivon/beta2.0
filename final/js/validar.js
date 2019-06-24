@@ -61,4 +61,13 @@ if (!expRegCarga.exec(carga) || (carga>0 || carga>12))
         return false;
      }
 }
+
+//validarcodigo
+var expRegCodigo=/^[0-9]*$/;
+var codigo=document.getElementById('codigo').value;
+if (!expRegCodigo.exec(codigo) || codigo<0 )
+     {
+        alert("El código ingresado es incorrecto");
+        return false;
+     }
 }
