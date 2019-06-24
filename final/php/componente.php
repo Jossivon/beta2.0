@@ -1,5 +1,6 @@
-<?php 
-  session_start(); 
+<script type="text/javascript" src="../js/validar.js"></script>
+<?php
+  session_start();
 
   if(isset($_SESSION["inicio"])){
 
@@ -40,7 +41,7 @@
                   <th scope="col">&nbsp;Nombre &nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
                   <th scope="col">&nbsp;Acciones&nbsp;</th>
-                 
+
 
                 </tr>
               </thead>
@@ -76,7 +77,7 @@
 <div class="modal fade" id="modalAgregarCompo"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="POST" enctype="multipart/form-data" action="ingresarComp.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarComp.php" onsubmit="return validarComponente()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -92,13 +93,13 @@
                   <div class="input-group-addon"><i class="fa fa-barcode"></i></div>
                     <input type="text" class="form-control input-lg" name="codigoC" id="codigoC" placeholder="Código Componente" required>
              </div>
-             
+
           <br>
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-archive"></i></div>
-                      <input type="text" class="form-control input-lg" name="descripcion" id=" descripcion" placeholder="Descripción" required>
+                      <input type="text" class="form-control input-lg" name="descripcion" id="descripcion" placeholder="Descripción" required>
                 </div>
               </div>
 
@@ -114,7 +115,12 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado" required>
+                    <select name="estado" id="estado" class="form-control input-lg">
+                      <option value="">Inicializado</option>
+                      <option value="">En Ejecucion</option>
+                      <option value="">Finalizado</option>
+                    </select>
+
                 </div>
               </div>
 
@@ -139,7 +145,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form method="POST" enctype="multipart/form-data" action="ingresarComp.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarComp.php" onsubmit="return validarEditarComponente()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -154,7 +160,7 @@
               <div class="input-group">
                     <input type="hidden" class="form-control input-lg" name="codigoC" id="codigou" placeholder="Código Componente">
              </div>
-             
+
           <br>
         <!-------------------------------- DESCRIPCION --------------------------------->
               <div class="form-group">
@@ -168,7 +174,7 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>
+                <!--      <input type="text" class="form-control input-lg" name="nombre" id ="nombreu" placeholder="Nombre" required>-->
                 </div>
               </div>
 
@@ -176,7 +182,13 @@
               <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-check-double"></i></div>
-                      <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>
+                    <select name="estado" id="estadou" class="form-control input-lg">
+                      <option value="">Inicializado</option>
+                      <option value="">En Ejecucion</option>
+                      <option value="">Finalizado</option>
+                    </select>
+
+                  <!--    <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>-->
                 </div>
               </div>
 
