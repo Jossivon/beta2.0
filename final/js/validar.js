@@ -55,7 +55,7 @@ if (!expRegTelefono.exec(telefono) || telefono.length<9)
 var expRegCarga=/^[0-9]*$/;
 var carga=document.getElementById('carga').value;
 if(carga.length!=""){
-if (!expRegCarga.exec(carga) || (carga>0 || carga>12))
+if (!expRegCarga.exec(carga) || (carga<0 || carga>12))
      {
         alert("La carga horaria ingresada no es correcta");
         return false;
@@ -123,7 +123,7 @@ if (!expRegTelefono.exec(telefono) || telefono.length<9)
 var expRegCarga=/^[0-9]*$/;
 var carga=document.getElementById('cargau').value;
 if(carga.length!=""){
-if (!expRegCarga.exec(carga) || (carga>0 || carga>12))
+if (!expRegCarga.exec(carga) || (carga<0 || carga>12))
      {
         alert("La carga horaria ingresada no es correcta");
         return false;
