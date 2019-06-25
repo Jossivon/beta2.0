@@ -9,6 +9,7 @@
 
 	if (preg_match('/^[a-zA-Z0-9]+$/',$cedula) && preg_match('/^[a-zA-Z0-9]+$/',$clave)){
 		session_start();
+		setcookie(cedula,$cedula);
 		$sql="select * from Usuario where cedulaU='$cedula' and clave='$clave' and perfil='$perfil'";
 		$resultado = mysqli_query($conexion,$sql) or die("no se realizo la consulta");
 		$row=$resultado->fetch_array();
@@ -18,7 +19,7 @@
 				header("Location: proyectos.php?p=$perfil&cedula=$cedula");
 			
 		}else {
-			//header('Location:../iniciarsesion.php');
+			header('Location:../iniciarsesion.php');
 
 			echo'<script type="text/javascript>console.log("Contraseña incorrecta");
 					window.location.href="login.php";

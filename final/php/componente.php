@@ -116,9 +116,9 @@
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
                     <select name="estado" id="estado" class="form-control input-lg">
-                      <option value="">Inicializado</option>
-                      <option value="">En Ejecucion</option>
-                      <option value="">Finalizado</option>
+                      <option value="Inicializado">Inicializado</option>
+                      <option value="En ejecucion">En Ejecucion</option>
+                      <option value="Finalizado">Finalizado</option>
                     </select>
 
                 </div>

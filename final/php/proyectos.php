@@ -17,7 +17,6 @@
 		session_start();
 
 		if (isset($_SESSION['inicio'])){
-			echo '<h1>BIENVENIDO</h1>';
 			include('conexion.php');
 
       $cedula=$_GET['cedula'];
@@ -36,6 +35,8 @@
                   from Integrantes I, Proyecto P
                   where I.codigoPro=P.codigoPro and I.cedulaI='$cedula'";
       }
+
+      
 			
 			$resultado=mysqli_query($conexion,$sql) or die('No se realizo la consulta');
 	?>
