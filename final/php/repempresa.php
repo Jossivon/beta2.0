@@ -78,7 +78,7 @@
 <div class="modal fade" id="modalAgregarRepEmp"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarRepreEmpre.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarRepreEmpre.php" onsubmit="return validar()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -95,6 +95,28 @@
                         <input type="text" class="form-control input-lg" name="cedulaI" id="cedula" placeholder="Cédula" required>
                  </div>
               </div>
+
+
+              <!-------------------------------- CODIGO EMPRESA --------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <?php
+                          $conexion=conectar();
+                          $sqlMostrar="select * from Empresa";
+                          $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+                          ?>
+                          <select name="codigoE" id="codigo" class="form-control input-lg">
+                            <?php
+                            while ($row=$result->fetch_assoc()){
+                                printf("<option value=\"%d\">%s</option>",$row['codigoE'],$row['nombre']);
+                            }
+                            ?>
+                          </select>
+                            <!--<input type="text" class="form-control input-lg" name="codigoE" id="codigoE" placeholder="codigo de la Empresa" required>-->
+                      </div>
+                    </div>
+
 
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
@@ -128,13 +150,6 @@
                 </div>
               </div>
 
-              <!------------------ CARGO--------------------------------------->
-              <div class="form-group">
-                <div class="input-group">
-                      <input type="hidden" class="form-control input-lg" name="cargo" placeholder="Coordinador" id="cargo" value="Coordinador Facultad">
-                </div>
-              </div>
-
          </div>
        </div>
 
@@ -153,7 +168,7 @@
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarRepreEmpre.php" onsubmit="return validarEditarUsuarios()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
