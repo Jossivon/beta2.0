@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="../js/validar.js"></script>
 <?php
   session_start();
 
@@ -83,7 +83,7 @@
 <div class="modal fade" id="modalAgregarFacu"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarEmpre.php">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarEmpre.php" onsubmit="return validarEmpresa()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -120,7 +120,7 @@
               <!------------------------------------CORREO--------------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-map"></i></div>
                             <input type="text" class="form-control input-lg" name="ciudad" id="ciudad" placeholder="Ciudad">
                       </div>
                     </div>
@@ -128,7 +128,7 @@
               <!------------------------------------- TELEFONO --------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="text" class="form-control input-lg" name="PaginaWeb" id="PaginaWeb"placeholder="Página Web" >
                       </div>
                     </div>
@@ -136,7 +136,7 @@
                 <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                             <input type="int" class="form-control input-lg" name="telefono" id="telefono" placeholder="Teléfono" required>
                       </div>
                     </div>
@@ -144,7 +144,7 @@
                     <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-inbox"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcion" placeholder="Descripción" required>
                       </div>
                     </div>
@@ -206,7 +206,7 @@
               <!------------------------------------CORREO--------------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-map"></i></div>
                             <input type="text" class="form-control input-lg" name="ciudad" id="ciudadu" >
                       </div>
                     </div>
@@ -214,7 +214,7 @@
               <!------------------------------------- TELEFONO --------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-at"></i></div>
                             <input type="text" class="form-control input-lg" name="PaginaWeb" id="paginawebu" >
                       </div>
                     </div>
@@ -222,14 +222,14 @@
               <!------------------------------------- TELEFONO --------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-phone"></i></div>
                             <input type="int" class="form-control input-lg" name="telefono" id="telefonou"  required>
                       </div>
                     </div>
                 <!---------------------------------- CARGA HORARIO ------------------------------------->
                     <div class="form-group">
                       <div class="input-group">
-                          <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
+                          <div class="input-group-addon"><i class="fa fa-inbox"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
                       </div>
                     </div>
