@@ -3,7 +3,6 @@
   session_start();
 
   if(isset($_SESSION["inicio"])){
-
     $id=$_SESSION['idp'];
 ?>
 
@@ -41,11 +40,10 @@
                   <th scope="col">&nbsp;Nombre &nbsp;</th>
                   <th scope="col">&nbsp;Estado&nbsp;</th>
                   <th scope="col">&nbsp;Acciones&nbsp;</th>
-
-
                 </tr>
               </thead>
-<tbody>
+
+                <tbody>
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
@@ -141,11 +139,10 @@
 
 
 <!-- EDITAR -->
-
 <div class="modal fade" id="modalEditar"  role="dialog" >
   <div class="modal-dialog">
     <div class="modal-content">
-     <form  role="form" method="POST" enctype="multipart/form-data" action="ingresarComp.php" onsubmit="return validarEditarComponente()">
+     <form  role="form" method="POST" enctype="multipart/form-data" action="actualizarComp.php" onsubmit="return validarEditarComponente()">
        <div class="modal-header" style="background: #39CCCC; color:white">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
@@ -183,9 +180,9 @@
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
                     <select name="estado" id="estadou" class="form-control input-lg">
-                      <option value="">Inicializado</option>
-                      <option value="">En Ejecucion</option>
-                      <option value="">Finalizado</option>
+                      <option value="Inicializado">Inicializado</option>
+                      <option value="En ejecucion">En Ejecución</option>
+                      <option value="Finalizado">Finalizado</option>
                     </select>
 
                   <!--    <input type="text" class="form-control input-lg" name="estado" id="estadou" placeholder="Estado" required>-->
