@@ -36,7 +36,6 @@ function editarA(datos){
 
 	d=datos.split('||');
 
-
 	$('#codigou').val(d[0]);
 	$('#nombreu').val(d[2]);
 	$('#descripcionu').val(d[3]);
@@ -97,51 +96,51 @@ function editarRE(datos){
 
 
 function preguntar(id){
-	
 
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarU(id)},
 		function(){alertify.error('Cancelar')});
 
 }
 
 function preguntarA(id){
-	
 
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarA(id)},
 		function(){alertify.error('Cancelar')});
 
 }
 
 function preguntarC(id){
-	
 
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarC(id)},
 		function(){alertify.error('Cancelar')});
 
 }
 
 function preguntarE(id){
-	
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarE(id)},
 		function(){alertify.error('Cancelar')});
 
 }
 
 function preguntarP(id){
-	
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarP(id)},
 		function(){alertify.error('Cancelar')});
 
 }
 
 function preguntarRE(id){
-	
-	alertify.confirm('Eliminar datos', 'Esta seguro', 
+
+	alertify.confirm('Eliminar datos', 'Esta seguro',
 		function(){eliminarRE(id)},
 		function(){alertify.error('Cancelar')});
 
