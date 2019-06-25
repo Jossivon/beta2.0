@@ -24,9 +24,9 @@
 
       <!-- Default box -->
       <div class="box">
-           
+
           <div class="box-header with-border">
-              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu"> 
+              <button class="btn btn-info" data-toggle="modal" data-target="#modalAgregarFacu">
                 Agregar Empresa
               </button>
           </div>
@@ -51,7 +51,7 @@
                   <?php
                       include 'conexion.php';
                       $conexion=conectar();
-                      $sqlMostrar="select * from Empresa where codigoE=$id";
+                      $sqlMostrar="select * from Empresa";
                       $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
 
 
@@ -72,7 +72,7 @@
                   ?>
               </tbody>
             </table>
-          </div> 
+          </div>
       </div>
    </section>
 </div>
@@ -179,7 +179,7 @@
 
       <div class="modal-body">
         <div class="box-body">
-      
+
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
@@ -232,7 +232,7 @@
                           <div class="input-group-addon"><i class="fa fa-user-clock"></i></div>
                             <input type="text" class="form-control input-lg" name="descripcion" id="descripcionu"  required>
                       </div>
-                    </div>    
+                    </div>
 
         </div>
       </div>
