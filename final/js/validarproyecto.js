@@ -102,9 +102,4 @@ if (!expRegBI.exec(bi) || bi<1 )
         alert("El campo ingresado es incorrecto");
         return false;
      }
-
-
-
-
-
 }
