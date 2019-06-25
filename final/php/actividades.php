@@ -160,6 +160,13 @@
                       <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado">
                 </div>
               </div>
+
+              <!-------------------ARCHIVO------------------------------------->
+              <div class="form-group">
+                <div class="panle">Subir archivo</div>
+                <input type="file" id="archivo" name="nuevoarchivo">
+                <p class="help-block"> Peso máximo 200 MB</p>
+             </div>
          </div>
        </div>
 

@@ -51,6 +51,8 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/semantic.rtl.min.css"/>
   <!-- Bootstrap theme -->
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/bootstrap.rtl.min.css"/>
+
+  <link rel="stylesheet" href="../bower_components/morris.js/morris.css">
   
   <!-- iNICIAR SESION -->
 
@@ -99,7 +101,7 @@
 
   	switch ($op) {
   		case '1':
-  			include('inicio.php');
+  			include("inicio.php");
   			break;
   		
   		case '2':
