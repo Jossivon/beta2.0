@@ -113,13 +113,34 @@
 
               <!--------------- CODIGO C----------------------------------------->
 
-              <div class="form-group">
+              <!-------------------------------- CODIGO COMPONENTE --------------------------------->
+                    <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                          <?php
+                          $conexion=conectar();
+                          $sqlMostrar="select * from Componente";
+                          $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+                          ?>
+                          <select name="codigoC" id="codigo" class="form-control input-lg">
+                            <?php
+                            while ($row=$result->fetch_assoc()){
+                                printf("<option value=\"%d\">%s</option>",$row['codigoC'],$row['nombre']);
+                            }
+                            ?>
+                          </select>
+                            <!--<input type="text" class="form-control input-lg" name="codigoE" id="codigoE" placeholder="codigo de la Empresa" required>-->
+                      </div>
+                    </div>
+
+
+          <!--    <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
                       <input type="text" class="form-control input-lg" name="codigoc" id="codigoc" placeholder="Nombre de la actividad" required>
                 </div>
               </div>
-
+            -->
 
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
               <div class="form-group">
@@ -153,13 +174,27 @@
                 </div>
               </div>
 
-                <!-------------------ESTADO------------------------------------->
+              <!-------------------------------ESTADO --------------------------------->
               <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
+                    <select name="estado" id="estado" class="form-control input-lg">
+                      <option value="Inicializado">Inicializado</option>
+                      <option value="En Ejecucion">En ejecucion</option>
+                      <option value="Finalizado">Finalizado</option>
+                    </select>
+
+                </div>
+              </div>
+
+
+                <!-------------------ESTADO------------------------------------->
+              <!-- <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
                       <input type="text" class="form-control input-lg" name="estado" id="estado" placeholder="Estado">
                 </div>
-              </div>
+              </div> -->
 
               <!-------------------ARCHIVO------------------------------------->
               <div class="form-group">
@@ -195,7 +230,7 @@
 
       <div class="modal-body">
         <div class="box-body">
-            <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
+            <!------------------- ----------------------------------------->
              <div class="form-group">
                   <div class="input-group">
                         <input type="hidden" class="form-control input-lg" name="codigo" id="codigou">
@@ -234,8 +269,20 @@
                 </div>
               </div>
 
-                <!-------------------ESTADO------------------------------------->
-              <div class="form-group">
+
+                <!-------------------------------ESTADO --------------------------------->
+                <div class="form-group">
+                  <div class="input-group">
+                      <div class="input-group-addon"><i class="fa fa-angle-double-down"></i></div>
+                      <select name="estado" id="estadou" class="form-control input-lg">
+                        <option value="Inicializado">Inicializado</option>
+                        <option value="En Ejecucion">En Ejecucion</option>
+                        <option value="Finalizado">Finalizado</option>
+                      </select>
+
+                  </div>
+                </div>
+          <!--    <div class="form-group">
                 <div class="input-group">
                     <div class="input-group-addon"><i class="fa fa-bussines-time"></i></div>
                       <input type="text" class="form-control input-lg" name="estado" id="estadou">
@@ -243,7 +290,7 @@
               </div>
          </div>
        </div>
-
+      -->
       <div class="modal-footer">
         <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Salir</button>
         <button type="submit" class="btn btn-primary">Agregar usuario</button>

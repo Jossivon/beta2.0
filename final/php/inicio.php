@@ -1,5 +1,5 @@
-<?php 
-  session_start(); 
+<?php
+  session_start();
   if(isset($_SESSION["inicio"])){
     $_SESSION['idp']=$_REQUEST['id'];
 ?>
@@ -37,7 +37,7 @@
               </div>
             </div>
             <div class="box-body border-radius-none">
-              
+
                 <table class="table table-bordered dt-responsive tablas">
                   <caption style="color:white">COORDINADORES DE FACULTAD</caption>
                   <thead class="thead-dark">
@@ -46,7 +46,7 @@
                       <th>&nbsp;Estado&nbsp;</th>
                     </tr>
                   </thead>
-        
+
                   <tbody>
                       <?php
                           include 'conexion.php';
@@ -88,7 +88,7 @@
             <!-- /.box-header -->
             <div class="box-body">
               <!-- See dist/js/pages/dashboard.js to activate the todoList plugin -->
-              <?php   
+              <?php
                       $conexion=conectar();
                       $id=$_SESSION['idp'];
                       $sqlMostrar=$sqlMostrar="select A.codigoA, A.codigoC, A.nombreA, A.fechaInicio, A.fechaFin, A.estado, A.descripcion
@@ -162,7 +162,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <!-- Progress bars -->
-                    <?php   
+                    <?php
                       $conexion=conectar();
                       $id=$_SESSION['idp'];
                       $sqlMostrar=$sqlMostrar="select A.codigoA, A.codigoC, A.nombreA, A.fechaInicio, A.fechaFin, A.estado, A.descripcion
@@ -176,18 +176,18 @@
 
                       while ($row=$result->fetch_array())
                  {?>
-                  
+
                   <div class="clearfix">
                     <span class="pull-left"><?php echo $row['nombreA']?></span>
                     <?php if($row['estado']=="Iniciado"){ echo '<small class="pull-right">10%</small>';}?>
-                          
 
-                    <?php if($row['estado']=="En proceso"){' <small class="pull-right">50%</small>';}?>
-                         
-                      
+
+                    <?php if($row['estado']=="En ejecucion"){' <small class="pull-right">50%</small>';}?>
+
+
 
                     <?php if($row['estado']=="Finalizado"){'<small class="pull-right">100%</small>';}?>
-                          
+
                   </div>
                   <div class="progress xs">
                     <?php
@@ -195,7 +195,7 @@
                           echo '<div class="progress-bar progress-bar-green" style="width: 10%;"></div>';
                       }
 
-                      if($row['estado']=='En proceso'){
+                      if($row['estado']=='En ejecucion'){
                           echo '<div class="progress-bar progress-bar-green" style="width: 50%;"></div>';
                       }
 
@@ -206,7 +206,7 @@
                   </div>
                   <?php
                 }?>
-                  
+
                 </div>
               </div>
               <!-- /.row -->
@@ -221,13 +221,13 @@
           <!-- Map box -->
           <div class="box box-solid bg-teal-gradient">
             <div class="box-header">
-        
+
               <i class="fa fa-map-marker"></i>
 
               <h3 class="box-title">
                 Componentes y Actividades
               </h3>
-            
+
               <div class="box-tools pull-right">
                 <button type="button" class="btn bg-teal btn-sm" data-widget="collapse"><i class="fa fa-minus"></i>
                 </button>
@@ -247,7 +247,7 @@
                       <th>&nbsp;Nombre del Componente&nbsp;</th>
                     </tr>
                   </thead>
-        
+
                   <tbody>
                        <?php
                           $conexion=conectar();
@@ -284,7 +284,7 @@
               </div>
             </div>
             <div class="box-body border-radius-none">
-              
+
                 <table class="table table-bordered dt-responsive tablas">
                   <caption style="color:white">COORDINADORES DE FACULTAD</caption>
                   <thead class="thead-dark">
@@ -294,7 +294,7 @@
                       <th>&nbsp;Nombre del componente&nbsp;</th>
                     </tr>
                   </thead>
-        
+
                   <tbody>
                       <?php
                           $conexion=conectar();
@@ -314,7 +314,7 @@
           <!-- /.box -->
 
           <!-- Calendar -->
-        
+
           <!-- /.box -->
 
         </section>
@@ -326,7 +326,7 @@
     <!-- /.content -->
   </div>
 
-  <?php 
+  <?php
   }else{
     include('../iniciarsesion.php');
   }
