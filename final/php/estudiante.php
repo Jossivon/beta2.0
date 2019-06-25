@@ -196,13 +196,13 @@
 
        <div class="modal-body">
 
-        <input type="text" hidden="" id="cedulaI">
+
         <div class="box-body">
             <!------------------- CEDULA DE INDENTIDAD ----------------------------------------->
           <div class="form-group">
               <div class="input-group">
                   <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
-                    <input type="text" class="form-control input-lg" name="cedula" id="cedulau"  required>
+                    <input type="hidden" class="form-control input-lg" name="cedula" id="cedulau">
              </div>
              <br>
         <!-------------------------------- NOMBRE DE USUARIO --------------------------------->
