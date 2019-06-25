@@ -94,16 +94,37 @@
                   </div>
               </div>
 
+                    <!-------------------------------- CEDULA COORDINADOR GENERAL --------------------------------->
+                          <div class="form-group">
+                            <div class="input-group">
+                                <div class="input-group-addon"><i class="fa fa-user"></i></div>
+                                <?php
+                                $conexion=conectar();
+                                $sqlMostrar="select * from CoordinadorGeneral";
+                                $result=mysqli_query($conexion,$sqlMostrar) or die("No se realizo la consulta");
+                                ?>
+                                <select name="cedulaC" id="cedula" class="form-control input-lg">
+                                  <?php
+                                  while ($row=$result->fetch_assoc()){
+                                      printf("<option value=\"%d\">%s&nbsp;%s</option>",$row['cedulaC'],$row['nombre'],$row['apellido']);
+                                  }
+                                  ?>
+                                </select>
+                                  <!--<input type="text" class="form-control input-lg" name="codigoE" id="codigoE" placeholder="codigo de la Empresa" required>-->
+                            </div>
+                          </div>
 
 
-            <!------------------- CEDULA DE COORDINADOR ----------------------------------------->
+
+           <!------------------- CEDULA DE COORDINADOR ----------------------------------------->
+           <!--
               <div class="form-group">
                   <div class="input-group">
                       <div class="input-group-addon"><i class="fa fa-address-card"></i></div>
                         <input type="text" class="form-control input-lg" name="cedulaC" id="cedulaC" placeholder="Cédula Coordinador" required>
                   </div>
               </div>
-
+    -->
 
         <!-------------------------------- NOMBRE PROGRAMA --------------------------------->
               <div class="form-group">
