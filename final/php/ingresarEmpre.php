@@ -1,8 +1,9 @@
 <?php
 
 //uso el include para insertar codigo de otro archivo php es como si llamara o todo ese fragmento de codigo del otro archivo
-// el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema. 
+// el requireonce funciona de la misma forma que el include sino q este impiden la carga de un mismo fichero varias veces, pero no da problema.
 include 'conexion.php';
+
 $codigo = $_POST['codigoE'];
 $nombre = $_POST['nombre'];
 $siglas = $_POST['siglas'];
@@ -20,7 +21,8 @@ $conexion = conectar();
 
 
 //la varaible sqlInsertar guarda la consulta que se quiera realizar, pero aun no la ejecuta ojo
-$sqlInsertar = "INSERT INTO Empresa (codigoE,nombre, siglas, ciudad, PaginaWeb,telefono, descripcion) VALUES ('$codigoE', '$nombre', '$siglas', '$ciudad', '$PaginaWeb', '$telefono', '$descripcion')"or die('No se realizo la consulta');
+$sqlInsertar = "INSERT INTO Empresa (codigoE,nombre, siglas, ciudad, PaginaWeb,telefono, descripcion)
+VALUES ($codigo, '$nombre', '$siglas', '$ciudad', '$PaginaWeb', '$telefono', '$descripcion')"or die('No se realizo la consulta');
 
 
 $resultado = mysqli_query($conexion, $sqlInsertar) or die("Problemas al guardar los datos...  ");
